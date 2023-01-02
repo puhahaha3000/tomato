@@ -6,6 +6,6 @@ login.jsp<%@ page language="java" contentType="text/html;charset=utf-8" pageEnco
 <head>
     <title>list</title>
 </head>
-<body
+<body>
 </body>
 </html>

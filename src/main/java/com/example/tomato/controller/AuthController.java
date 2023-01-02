@@ -7,11 +7,6 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
-public class PakageDummy {
-	
-	@GetMapping("/")
-	public String home() {
-		log.info("index()..");
-		return "index";
-	}
+public class AuthController {
+
 }

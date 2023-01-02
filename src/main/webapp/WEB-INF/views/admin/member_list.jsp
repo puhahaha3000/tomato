@@ -6,6 +6,6 @@
 <head>
     <title>list</title>
 </head>
-<body
+<body>
 </body>
 </html>
