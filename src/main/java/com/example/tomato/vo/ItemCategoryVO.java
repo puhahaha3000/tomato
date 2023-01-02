@@ -5,11 +5,11 @@ import lombok.Data;
 /*
 ---- -------- ------------- 
 NO   NOT NULL NUMBER        
-NAME NOT NULL VARCHAR2(500)
+NAME NOT NULL VARCHAR2(100)
  */
 
 @Data
-public class ReportCategoryVO {
+public class ItemCategoryVO {
 	private int no;
 	private String name;
 }
