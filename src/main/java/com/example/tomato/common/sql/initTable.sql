@@ -315,7 +315,7 @@ CREATE TABLE board
 
 CREATE TABLE qnas
 (
-    no            VARCHAR(255)        NOT NULL,
+    no            number              NOT NULL,
     board_no      number              NOT NULL,
     hidden_flag   char(1)             NOT NULL,
     complete_flag char(1) DEFAULT 'N' NOT NULL
