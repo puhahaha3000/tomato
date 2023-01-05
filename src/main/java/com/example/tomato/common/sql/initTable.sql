@@ -116,7 +116,7 @@ EXCEPTION
 END;
 
 BEGIN
-    EXECUTE IMMEDIATE 'DROP TABLE ROAD_CODE';
+    EXECUTE IMMEDIATE 'DROP TABLE ADDRESS';
 EXCEPTION
     WHEN OTHERS THEN
         IF SQLCODE != -942 THEN
@@ -195,16 +195,15 @@ CREATE TABLE notice
 
 CREATE TABLE members
 (
-    no       number              NOT NULL,
-    id       varchar2(60)        NOT NULL,
-    code     varchar2(12)        NOT NULL,
-    dong_id  varchar2(2)         NOT NULL,
-    password varchar2(60)        NOT NULL,
-    name     varchar2(60)        NOT NULL,
-    tel      varchar2(20)        NOT NULL,
-    email    varchar2(100)       NOT NULL,
-    nickname varchar2(60)        NOT NULL,
-    del_flag char(1) DEFAULT 'N' NOT NULL
+    no         number              NOT NULL,
+    id         varchar2(60)        NOT NULL,
+    address_no number              NOT NULL,
+    password   varchar2(60)        NOT NULL,
+    name       varchar2(60)        NOT NULL,
+    tel        varchar2(20)        NOT NULL,
+    email      varchar2(100)       NOT NULL,
+    nickname   varchar2(60)        NOT NULL,
+    del_flag   char(1) DEFAULT 'N' NOT NULL
 );
 
 CREATE TABLE images
@@ -218,14 +217,13 @@ CREATE TABLE images
 
 CREATE TABLE trade
 (
-    no            number       NOT NULL,
-    board_no      number       NOT NULL,
-    item_category number       NOT NULL,
-    code          varchar2(12) NOT NULL,
-    dong_id       varchar2(2)  NOT NULL,
-    buyer_no      number       NULL,
-    status_no     number       NOT NULL,
-    price         number       NOT NULL
+    no            number NOT NULL,
+    board_no      number NOT NULL,
+    item_category number NOT NULL,
+    address_no    number NOT NULL,
+    buyer_no      number NULL,
+    status_no     number NOT NULL,
+    price         number NOT NULL
 );
 
 CREATE TABLE item_category
@@ -234,28 +232,15 @@ CREATE TABLE item_category
     name varchar2(100) NOT NULL
 );
 
-CREATE TABLE road_code
+CREATE TABLE address
 (
-    code           varchar2(12) NOT NULL,
-    dong_id        varchar2(2)  NOT NULL,
-    road_name      varchar2(80) NULL,
-    road_roma      varchar2(80) NULL,
-    sido_name      varchar2(20) NULL,
-    sido_name_roma varchar2(40) NULL,
-    sigungu_name   varchar2(20) NULL,
-    sigungu_roma   varchar2(40) NULL,
-    dong_name      varchar2(20) NULL,
-    dong_roma      varchar2(40) NULL,
-    dong_flag      varchar2(1)  NULL,
-    dong_code      varchar2(3)  NULL,
-    use_flag       varchar2(1)  NULL,
-    modify_reason  varchar2(1)  NULL,
-    history        varchar2(14) NULL,
-    notify_date    varchar2(8)  NULL,
-    delete_date    varchar2(8)  NULL
+    no           number       not null,
+    sido_name    varchar2(60) null,
+    sigungu_name varchar2(60) null,
+    dong_name    varchar2(60) null
 );
 
-CREATE TABLE Authorities
+CREATE TABLE authorities
 (
     member_no number       NOT NULL,
     authority varchar2(50) NOT NULL
@@ -339,8 +324,8 @@ ALTER TABLE trade
     ADD CONSTRAINT PK_TRADE PRIMARY KEY (no);
 ALTER TABLE item_category
     ADD CONSTRAINT PK_ITEM_CATEGORY PRIMARY KEY (no);
-ALTER TABLE road_code
-    ADD CONSTRAINT PK_ROAD_CODE PRIMARY KEY (code, dong_id);
+ALTER TABLE address
+    ADD CONSTRAINT PK_ADDRESS PRIMARY KEY (no);
 ALTER TABLE reports
     ADD CONSTRAINT PK_REPORTS PRIMARY KEY (no);
 ALTER TABLE report_category
@@ -356,7 +341,7 @@ ALTER TABLE qnas
 ALTER TABLE notice
     ADD CONSTRAINT FK_board_TO_notice_1 FOREIGN KEY (board_no) REFERENCES board (no);
 ALTER TABLE members
-    ADD CONSTRAINT FK_road_code_TO_members_1 FOREIGN KEY (code, dong_id) REFERENCES road_code (code, dong_id);
+    ADD CONSTRAINT FK_address_TO_members_1 FOREIGN KEY (address_no) REFERENCES address (no);
 ALTER TABLE images
     ADD CONSTRAINT FK_trade_TO_images_1 FOREIGN KEY (trade_no) REFERENCES trade (no);
 ALTER TABLE trade
@@ -364,12 +349,12 @@ ALTER TABLE trade
 ALTER TABLE trade
     ADD CONSTRAINT FK_item_category_TO_trade_1 FOREIGN KEY (item_category) REFERENCES item_category (no);
 ALTER TABLE trade
-    ADD CONSTRAINT FK_road_code_TO_trade_1 FOREIGN KEY (code, dong_id) REFERENCES road_code (code, dong_id);
+    ADD CONSTRAINT FK_address_TO_trade_1 FOREIGN KEY (address_no) REFERENCES address (no);
 ALTER TABLE trade
     ADD CONSTRAINT FK_members_TO_trade_1 FOREIGN KEY (buyer_no) REFERENCES members (no);
 ALTER TABLE trade
     ADD CONSTRAINT FK_trade_status_TO_trade_1 FOREIGN KEY (status_no) REFERENCES trade_status (no);
-ALTER TABLE Authorities
+ALTER TABLE authorities
     ADD CONSTRAINT FK_members_TO_Authorities_1 FOREIGN KEY (member_no) REFERENCES members (no);
 ALTER TABLE reports
     ADD CONSTRAINT FK_members_TO_reports_1 FOREIGN KEY (member_no) REFERENCES members (no);
@@ -383,9 +368,9 @@ ALTER TABLE chat_room
     ADD CONSTRAINT FK_members_TO_chat_room_1 FOREIGN KEY (member_no) REFERENCES members (no);
 ALTER TABLE chat_room
     ADD CONSTRAINT FK_members_TO_chat_room_2 FOREIGN KEY (member_no2) REFERENCES members (no);
-ALTER TABLE Favorite
+ALTER TABLE favorite
     ADD CONSTRAINT FK_members_TO_Favorite_1 FOREIGN KEY (owner_no) REFERENCES members (no);
-ALTER TABLE Favorite
+ALTER TABLE favorite
     ADD CONSTRAINT FK_trade_TO_Favorite_1 FOREIGN KEY (trade_no) REFERENCES trade (no);
 ALTER TABLE board
     ADD CONSTRAINT FK_members_TO_board_1 FOREIGN KEY (member_no) REFERENCES members (no);
