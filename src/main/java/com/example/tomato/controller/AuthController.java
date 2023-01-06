@@ -9,4 +9,10 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 public class AuthController {
 
+	@GetMapping("/auth/login")
+	public String login() {
+		log.info("login()..");
+		return "/auth/login";
+	}
+
 }

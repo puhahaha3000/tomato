@@ -1,6 +1,8 @@
 package com.example.tomato.vo;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /*
 --------- -------- -------------- 
@@ -11,6 +13,8 @@ PHOTO     NOT NULL VARCHAR2(1000)
 ORDERS    NOT NULL NUMBER 
  */
 
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
 public class ImageVO {
 	private int no;

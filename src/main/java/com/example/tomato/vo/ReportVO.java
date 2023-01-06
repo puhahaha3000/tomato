@@ -2,7 +2,9 @@ package com.example.tomato.vo;
 
 import java.sql.Timestamp;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /*
 ------------- -------- -------------- 
@@ -15,6 +17,8 @@ CREATE_DATE   NOT NULL DATE
 COMPLETE_FLAG NOT NULL CHAR(1)     
  */
 
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
 public class ReportVO {
 	private int no;
