@@ -2,7 +2,9 @@ package com.example.tomato.vo;
 
 import java.sql.Timestamp;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /*
 ----------- -------- -------------- 
@@ -15,12 +17,14 @@ OPEN_FLAG   NOT NULL CHAR(1)
 FILE_URL    NOT NULL VARCHAR2(1000)  
  */
 
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
 public class ChatRoomVO {
 	private int no;
 	private int tradeNo;
-	private String memberNo;
-	private String memberNo2;
+	private int memberNo;
+	private int memberNo2;
 	private Timestamp createDate;
 	private char openFlag;
 	private String fileUrl;

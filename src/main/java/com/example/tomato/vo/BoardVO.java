@@ -2,7 +2,9 @@ package com.example.tomato.vo;
 
 import java.sql.Timestamp;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /*
 ------------- -------- -------------- 
@@ -16,6 +18,8 @@ HIT           NOT NULL NUMBER
 DEL_FLAG      NOT NULL CHAR(1)
  */
 
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
 public class BoardVO {
 	private int no;
