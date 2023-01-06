@@ -3,5 +3,5 @@
 2. initUser.sql 실행
 3. tomato / javabuu 로 로그인
 4. initTable.sql 실행
-5. initMember.sql 실행
-6. insertWord.sql 실행
+5. address 테이블 입력 (address_data.txt) 
+6. 
