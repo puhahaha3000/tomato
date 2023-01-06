@@ -2,9 +2,15 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
-<script type="text/javascript">
-    alert("favorite");
-</script>
-
-<h1>Favorite Page</h1>
-<list></list>
+<html>
+<head>
+    <title></title>
+</head>
+<jsp:include page="header.jsp" />
+<body>
+<section>
+    <jsp:include page="${pageName}" />
+</section>
+</body>
+<jsp:include page="footer.jsp" />
+</html>
