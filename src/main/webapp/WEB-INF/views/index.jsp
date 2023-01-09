@@ -51,7 +51,7 @@
 						
 					</div>
 					<div class="col-1">
-						쓰기
+						<img>
 					</div>
 					<div class="col-1">
 						채팅
