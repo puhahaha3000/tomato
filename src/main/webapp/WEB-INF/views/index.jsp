@@ -16,10 +16,10 @@
 		<body>
 			<div class="container text-center">
 				<div class="row">
-					<div class="col-3">
-						<img src="img/tomatoLogo.jpg" class="img-rounded" alt="토마토" width="80px" height="80px">
+					<div class="col-2">
+						<a href="#"><img src="img/tomatoLogo.jpg" class="img-rounded" alt="토마토" width="80px" height="80px"></a>
 					</div>
-					<div class="col-sm-7">
+					<div class="col-sm-8">
 						<div class="d-flex justify-content-end">						
 						<nav class="navbar bg-body-tertiary">
 							<form class="d-flex" role="search">
@@ -34,11 +34,11 @@
 						<div class="mt-3"><a href="#" class="link-success" style="text-decoration-line: none;">내상점</a></div>
 					</div>
 					<div class="col-1" style="margin-top: 2.5vh;">
-						<button type="button" class="btn btn-outline-primary btn-sm">로그인/회원가입</button>
+						<a href="#" class="btn btn-outline-success btn-sm" tabindex="-1" role="button" aria-disabled="true">로그인/회원가입</a>
 					</div>
 				</div>
 				</div>
-				<div class="row">
+				<div class="row" style="height: 15vh;">
 					<div class="col-6">
 						<div class="btn-group">
 							<a href="#" class="btn btn-outline-dark" aria-current="page">공지사항</a>
@@ -51,79 +51,21 @@
 						
 					</div>
 					<div class="col-1">
-						<img>
+						<a href="#"><img src="img/writeIcon.png" class="img-fluid" alt="쓰기"></a>
 					</div>
 					<div class="col-1">
-						채팅
+						<a href="#"><img src="img/chatIcon.png" class="img-fluid" alt="채팅"></a>
+					
 					</div>
 					<div class="col-1">
-						찜
+						<a href="#"><img src="img/heartIcon.png" class="img-fluid" alt="찜"></a>
 					</div>
 					
 				</div>
-				<div class="row">
+				<div class="row" style="justify-content: flex-start;">
 					<div class="col-1">
-						팝니다
-					</div>
-				</div>
-				<div class="row">
-					<table class="table table-hover">
-					
-						<thead class="table-light">
-							<tr>
-								<th scope="col">No</th>
-								<th scope="col">제목</th>
-								<th scope="col">작성자</th>
-								<th scope="col">작성일</th>
-								<th scope="col">조회수</th>
-							</tr>
-						</thead>
-						<tbody class="table-group-divider">
-							<tr>
-								<th scope="row">1</th>
-								<td>제목자리</td>
-								<td>작성자자리</td>
-								<td>작성일자리</td>
-								<td>조회수자리</td>
-
-							</tr>
-							<tr>
-								<th scope="row">2</th>
-								<td>제목자리</td>
-								<td>작성자자리</td>
-								<td>작성일자리</td>
-								<td>조회수자리</td>
-
-							</tr>
-							<tr>
-								<th scope="row">3</th>
-								<td>제목자리</td>
-								<td>작성자자리</td>
-								<td>작성일자리</td>
-								<td>조회수자리</td>
-
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				<div class="row">
-					<div class="col">
-						<p>
+						<span class="h5">팝니다</span>
 						
-							<button class="btn btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-							  더보기
-							</button>
-						  </p>
-						  <div class="collapse" id="collapseExample">
-							<div class="card card-body">
-							  숨겨진 리스트 등장!
-							</div>
-						  </div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-1">
-						삽니다
 					</div>
 				</div>
 				<div class="row">
@@ -167,17 +109,58 @@
 					</table>
 				</div>
 				<div class="row">
-					<div class="col">
-						<p>
-							<button class="btn btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
-							  더보기
-							</button>
-						  </p>
-						  <div class="collapse" id="collapseExample2">
-							<div class="card card-body">
-							  숨겨진 리스트 등장!
-							</div>
-						  </div>
+					<div class="col" style="justify-content: center; display: flex;" >
+						<a href="#" class="btn btn-outline-dark" tabindex="-1" role="button" aria-disabled="true">더보기</a>					  
+					</div>
+				</div>
+				<div class="row" style="justify-content: flex-start;">
+					<div class="col-1" style="margin-top: 3vh;">
+						<span class="h5">삽니다</span>
+					</div>
+				</div>
+				<div class="row">
+					<table class="table table-hover">
+					
+						<thead class="table-light">
+							<tr>
+								<th scope="col">No</th>
+								<th scope="col">제목</th>
+								<th scope="col">작성자</th>
+								<th scope="col">작성일</th>
+								<th scope="col">조회수</th>
+							</tr>
+						</thead>
+						<tbody class="table-group-divider">
+							<tr>
+								<th scope="row">1</th>
+								<td>제목자리</td>
+								<td>작성자자리</td>
+								<td>작성일자리</td>
+								<td>조회수자리</td>
+
+							</tr>
+							<tr>
+								<th scope="row">2</th>
+								<td>제목자리</td>
+								<td>작성자자리</td>
+								<td>작성일자리</td>
+								<td>조회수자리</td>
+
+							</tr>
+							<tr>
+								<th scope="row">3</th>
+								<td>제목자리</td>
+								<td>작성자자리</td>
+								<td>작성일자리</td>
+								<td>조회수자리</td>
+
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="row">
+					<div class="col" style="justify-content: center; display: flex;">
+						<a href="#" class="btn btn-outline-dark" tabindex="-1" role="button" aria-disabled="true">더보기</a>
 					</div>
 				</div>
 				

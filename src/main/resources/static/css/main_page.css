@@ -3,14 +3,15 @@
 }
 .d-flex{
     height: 8vh;
-    width: 100vh;
+    width: 125vh;
 }
-.col-sm-7>.d-flex{
+.col-sm-8>.d-flex{
     padding-top: 3vh;
 }
 .row{
     margin-left: 1vh;
     justify-content: center;
+    margin-top: 3vh;
 }
 .row .col-6{
     align-items: flex-start;
@@ -22,5 +23,12 @@
     width: 25vh;
     margin-top: 2.5vh;
     margin-right: 5vh;
+}
+.col-1 img{
+    width: 5vh;
+    height: 5vh;
+    display: block;
+    margin:auto;
+    margin-top: 3.5vh;
 }
 
