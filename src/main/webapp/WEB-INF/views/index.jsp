@@ -6,7 +6,7 @@
 
 		<head>
 			<meta charset="UTF-8">
-			<title>Insert title here</title>
+			<title>tomato</title>
 			<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
 				integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
 				crossorigin="anonymous">
@@ -29,30 +29,26 @@
 						  </nav>
 						</div>
 					</div>
-					<div class="col-1">
-						<div class="mt-3">내상점</div>
+					
+					<div class="col-1" style="margin-top: 3vh;">
+						<div class="mt-3"><a href="#" class="link-success" style="text-decoration-line: none;">내상점</a></div>
 					</div>
-					<div class="col-1">
-						<button type="button" class="btn btn-outline-primary btn-sm mt-3">로그인</button>
+					<div class="col-1" style="margin-top: 2.5vh;">
+						<button type="button" class="btn btn-outline-primary btn-sm">로그인/회원가입</button>
 					</div>
+				</div>
 				</div>
 				<div class="row">
 					<div class="col-6">
-							<ul class="nav nav-tabs">
-							<li class="nav-item">
-							  <a class="nav-link active" aria-current="page" href="#">거래게시판</a>
-							</li>
-							<li class="nav-item">
-							  <a class="nav-link" href="#">공지사항</a>
-							</li>
-							<li class="nav-item">
-							  <a class="nav-link" href="#">QnA</a>
-							</li>
-						  </ul>	
+						<div class="btn-group">
+							<a href="#" class="btn btn-outline-dark" aria-current="page">공지사항</a>
+							<a href="#" class="btn btn-outline-dark">QnA</a>
+							<a href="#" class="btn btn-outline-dark">거래게시판</a>
+						  </div>
 					</div>
 					
 					<div class="col-3">
-						이 자리는 일단은 공백
+						
 					</div>
 					<div class="col-1">
 						쓰기
