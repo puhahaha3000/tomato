@@ -34,4 +34,5 @@ public class MemberVO {
 	private char delFlag;
 	
 	private List<AuthorityVO> authorityList;
+	
 }
