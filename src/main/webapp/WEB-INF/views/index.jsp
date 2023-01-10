@@ -44,6 +44,7 @@
 							<a href="#" class="btn btn-outline-dark" aria-current="page">공지사항</a>
 							<a href="#" class="btn btn-outline-dark">QnA</a>
 							<a href="#" class="btn btn-outline-dark">거래게시판</a>
+							<a href="member/signup_view" class="btn btn-outline-dark">회원가입</a>
 						  </div>
 					</div>
 					
