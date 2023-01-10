@@ -23,12 +23,12 @@
        ]]>
     </select>
 
-    <!-- <insert id="insertMember">
+    <insert id="insertMember">
         <![CDATA[
               INSERT INTO MEMBERS (NO, ID, ADDRESS_NO, PASSWORD, NAME, TEL, EMAIL, NICKNAME)
-              VALUES (member_no_seq.nextval, #{id}, #{no}, #{password}, #{name}, #{tel}, #{email}, #{nickname})
+              VALUES (member_no_seq.nextval, #{id}, #{addressNo}, #{password}, #{name}, #{tel}, #{email}, #{nickname})
         ]]>
-    </insert> -->
+    </insert>
 
     <select id="idCheck" parameterType="String" resultType="Integer">
         <![CDATA[

@@ -4,6 +4,8 @@
 
 <html>
 <head>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}">
+    <meta name="_csrf" th:content="${_csrf.token}">
     <title>회원가입</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript">
@@ -146,7 +148,7 @@
 
                 let form = {
                     id : id,
-                    no : no,
+                    addressNo : no,
                     password : password,
                     name : name,
                     tel : tel,

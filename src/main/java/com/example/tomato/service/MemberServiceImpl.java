@@ -4,6 +4,7 @@ import com.example.tomato.mapper.MemberMapper;
 import com.example.tomato.vo.MemberVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Slf4j
@@ -18,6 +19,8 @@ public class MemberServiceImpl implements MemberService {
     public void join(MemberVO memberVO) {
 
         log.info("join() ..");
+
+        memberVO.setPassword(new BCryptPasswordEncoder().encode(memberVO.getPassword()));
 
         memberMapper.insertMember(memberVO);
     }
