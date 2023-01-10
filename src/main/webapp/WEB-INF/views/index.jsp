@@ -34,7 +34,7 @@
 						<div class="mt-3"><a href="#" class="link-success" style="text-decoration-line: none;">내상점</a></div>
 					</div>
 					<div class="col-1" style="margin-top: 2.5vh;">
-						<a href="#" class="btn btn-outline-success btn-sm" tabindex="-1" role="button" aria-disabled="true">로그인/회원가입</a>
+						<a href="http://localhost:8282/tomato/auth/login" class="btn btn-outline-success btn-sm" tabindex="-1" role="button" aria-disabled="true">로그인/회원가입</a>
 					</div>
 				</div>
 				</div>
