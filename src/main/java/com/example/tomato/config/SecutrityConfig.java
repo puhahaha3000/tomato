@@ -32,8 +32,8 @@ public class SecutrityConfig extends WebSecurityConfigurerAdapter {
 			.defaultSuccessUrl("/");
 
 		http.authorizeHttpRequests()
-		.antMatchers("/member/**").hasAnyRole("MEMBER")
-		.antMatchers("/admin/**").hasAnyRole("ADMIN","MEMBER")
+		.antMatchers("/member/**").hasAnyRole("MEMBER","ADMIN")
+		.antMatchers("/admin/**").hasAnyRole("ADMIN")
 		.antMatchers("/**").permitAll();
 	}
 
