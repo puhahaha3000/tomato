@@ -22,5 +22,26 @@
       where members.no = authorities.member_no and members.id= #{id}
        ]]>
     </select>
+
+    <!-- <insert id="insertMember">
+        <![CDATA[
+              INSERT INTO MEMBERS (NO, ID, ADDRESS_NO, PASSWORD, NAME, TEL, EMAIL, NICKNAME)
+              VALUES (member_no_seq.nextval, #{id}, #{no}, #{password}, #{name}, #{tel}, #{email}, #{nickname})
+        ]]>
+    </insert> -->
+
+    <select id="idCheck" parameterType="String" resultType="Integer">
+        <![CDATA[
+              SELECT COUNT(*) FROM MEMBERS
+              WHERE ID = #{id}
+        ]]>
+    </select>
+
+    <select id="nicknameCheck" parameterType="String" resultType="Integer">
+        <![CDATA[
+              SELECT COUNT(*) FROM MEMBERS
+              WHERE NICKNAME = #{nickname}
+        ]]>
+    </select>
      
 </mapper>

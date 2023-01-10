@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.tomato.mapper.AddressMapper">
+
+    <!-- mybatis.type-aliases-package=com.example.tomato.vo -->
+    <!-- CDATA 내용에 있는 SQL 문에 세미콜론 붙이지 말것 -->
+
+    <!-- 주소 관련 테이블이 없어서 임시적으로 주소 컬럼 데이터를 제외한 데이터를 추가 -->
+
+    <select id="getSidoNameList" resultType="string">
+        <![CDATA[
+              SELECT DISTINCT SIDO_NAME FROM ADDRESS
+        ]]>
+    </select>
+
+    <select id="getSigunguNameList" parameterType="String" resultType="string">
+        <![CDATA[
+              SELECT DISTINCT SIGUNGU_NAME FROM ADDRESS WHERE SIDO_NAME = #{sido_name}
+        ]]>
+    </select>
+
+    <select id="getDongNameList" parameterType="String" resultType="AddressVO">
+        <![CDATA[
+              SELECT DISTINCT NO, DONG_NAME FROM ADDRESS
+              WHERE SIDO_NAME = #{sidoName} AND SIGUNGU_NAME  = #{sigunguName} AND DONG_NAME IS NOT NULL
+        ]]>
+    </select>
+</mapper>
