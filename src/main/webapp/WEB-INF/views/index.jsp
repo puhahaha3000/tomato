@@ -83,7 +83,7 @@
 						<tbody class="table-group-divider">
 							<tr>
 								<th scope="row">1</th>
-								<td>제목자리</td>
+								<td>제목자리1</td>
 								<td>작성자자리</td>
 								<td>작성일자리</td>
 								<td>조회수자리</td>
