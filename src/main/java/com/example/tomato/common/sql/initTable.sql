@@ -242,8 +242,8 @@ CREATE TABLE address
 
 CREATE TABLE authorities
 (
-    member_no number       NOT NULL,
-    authority varchar2(50) NOT NULL
+    member_no number                           NOT NULL,
+    authority varchar2(50) DEFAULT 'ROLE_USER' NOT NULL
 );
 
 CREATE TABLE reports
