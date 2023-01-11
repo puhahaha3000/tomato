@@ -1,15 +1,15 @@
 .searchButton{
-    width: 20vh;
+    width: 80px;
 }
 .d-flex{
-    height: 8vh;
-    width: 125vh;
+    height: 40px;
+    width: 50vw;
 }
 .col-sm-8>.d-flex{
     padding-top: 3vh;
 }
 .row{
-    margin-left: 1vh;
+    margin-left: 1vw;
     justify-content: center;
     margin-top: 3vh;
 }
@@ -20,12 +20,12 @@
     margin-top: 3vh;
 }
 .col-1 .btn{
-    width: 25vh;
+    width: 6vw;
     margin-top: 2.5vh;
-    margin-right: 5vh;
+    margin-right: 5vw;
 }
 .col-1 img{
-    width: 5vh;
+    width: 5vw;
     height: 5vh;
     display: block;
     margin:auto;

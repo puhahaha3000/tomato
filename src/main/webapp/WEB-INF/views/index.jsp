@@ -19,14 +19,14 @@
 					<div class="col-2">
 						<a href="#"><img src="img/tomatoLogo.jpg" class="img-rounded" alt="토마토" width="80px" height="80px"></a>
 					</div>
-					<div class="col-sm-8">
+					<div class="col-8">
 						<div class="d-flex justify-content-center">						
-						<nav class="navbar bg-body-tertiary">
+						
 							<form class="d-flex" role="search">
 								<input class="form-control me-2" type="search" placeholder="입력해주세요" aria-label="Search">
 								<button class="btn btn-outline-success searchButton" type="submit">검색</button>
-							  </form>
-						  </nav>
+							</form>
+						  
 						</div>
 					</div>
 					
