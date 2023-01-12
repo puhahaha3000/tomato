@@ -42,12 +42,12 @@
             // 시/도를 선택했을때 다음 시/군/구 리스트 항목 재구성하는 메소드
             $("#sido_name").change(function() {
                 // sido_name 를 param.
-                let sido_name =  $("#sido_name").val();
+                let sidoName =  $("#sido_name").val();
 
                 $.ajax({
                     async: true,
                     type : 'POST',
-                    data : sido_name,
+                    data : sidoName,
                     url : "sigungu_name_list",
                     dataType : "json",
                     contentType: "application/json; charset=UTF-8",
@@ -73,13 +73,13 @@
             // 시/군/구 를 선택했을때 다음 동 리스트 항목 재구성하는 메소드
             $("#sigungu_name").change(function() {
                 // sido_name, sigungu_name 를 param.
-                let sido_name =  $("#sido_name").val();
-                let sigungu_name = $("#sigungu_name").val();
+                let sidoName =  $("#sido_name").val();
+                let sigunguName = $("#sigungu_name").val();
 
                 $.ajax({
                     async: true,
                     type : 'POST',
-                    data : { sidoName : sido_name, sigunguName : sigungu_name },
+                    data : { sidoName : sidoName, sigunguName : sigunguName },
                     url : "dong_name_list",
                     // 데이터 타입 즉 서버에서 받아오는 데이터의 리턴타입을 말한다.
                     dataType : "json",
@@ -94,8 +94,8 @@
 
                         for(var i = 0; i < len; i++) {
                             var no = data[i].no
-                            var dong_name = data[i].dong_name;
-                            $("#dong_name").append("<option value='" + no + "'>" + dong_name + "</option>");
+                            var dongName = data[i].dongName;
+                            $("#dong_name").append("<option value='" + no + "'>" + dongName + "</option>");
                         }
                     },
                     error : function(error) {

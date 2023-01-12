@@ -43,5 +43,11 @@
               WHERE NICKNAME = #{nickname}
         ]]>
     </select>
-     
+
+    <select id="getMemberVO" parameterType="String" resultType="MemberVO">
+        <![CDATA[
+              SELECT NO, ID, ADDRESS_NO, NAME, TEL, EMAIL, NICKNAME FROM MEMBERS WHERE ID = #{memberId}
+        ]]>
+    </select>
+
 </mapper>
