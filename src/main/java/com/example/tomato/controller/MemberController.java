@@ -43,6 +43,7 @@ public class MemberController {
         return "member/signup_view";
     }
 
+    // 테스트 하느라 GET 요청 사용했음 POST 로 수정요망
     @GetMapping("/mypage")
     public String mypage(Model model, HttpSession session) {
 
@@ -63,6 +64,24 @@ public class MemberController {
         model.addAttribute("addressVO", addressVO);
 
         return "member/mypage";
+    }
+
+    // 테스트 하느라 GET 요청 사용했음 POST 로 수정요망
+    @GetMapping("/modify")
+    public String modify(Model model, HttpSession session) {
+
+        log.info("modify() ..");
+
+        // String memberId = (String) session.getAttribute("memberId");
+        String memberId = "qwer1234";
+
+        MemberVO memberVO = memberService.mypage(memberId);   // 회원정보수정 띄울 내 정보 가져오기
+        AddressVO addressVO = addressService.myAddress(memberId);   // 회원정보수정 띄울 내 동네 정보 가져오기
+
+        model.addAttribute("memberVO", memberVO);
+        model.addAttribute("addressVO", addressVO);
+
+        return "member/modify";
     }
 
 }
