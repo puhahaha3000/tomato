@@ -27,14 +27,12 @@ public class SecutrityConfig extends WebSecurityConfigurerAdapter {
 		http.formLogin()
 			.loginPage("/login")
 			.usernameParameter("ID")
-			.passwordParameter("PW")
 			.defaultSuccessUrl("/");
 
 		http.authorizeHttpRequests()
-		.antMatchers("/member/**").hasAnyRole("MEMBER")
-		.antMatchers("/admin/**").hasAnyRole("ADMIN","MEMBER")
-		.antMatchers("/**").permitAll()
-		.antMatchers("/member/**").permitAll();
+		.antMatchers("/member/**").hasAnyRole("MEMBER", "ADMIN")
+		.antMatchers("/admin/**").hasAnyRole("ADMIN")
+		.antMatchers("/**").permitAll();
 	}
 
 	@Override
