@@ -39,7 +39,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">비밀번호</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1 password" name="PW" />
+                            <input type="password" class="form-control" id="exampleInputPassword1 password" name="PASSWORD" />
                         </div>
                         <%-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> --%>
                         <button type="submit" class="btn btn-primary">로그인</button>
