@@ -17,7 +17,7 @@
 
     <select id="getSigunguNameList" parameterType="String" resultType="string">
         <![CDATA[
-              SELECT DISTINCT SIGUNGU_NAME FROM ADDRESS WHERE SIDO_NAME = #{sido_name}
+              SELECT DISTINCT SIGUNGU_NAME FROM ADDRESS WHERE SIDO_NAME = #{sidoName}
         ]]>
     </select>
 
@@ -27,4 +27,11 @@
               WHERE SIDO_NAME = #{sidoName} AND SIGUNGU_NAME  = #{sigunguName} AND DONG_NAME IS NOT NULL
         ]]>
     </select>
+
+    <select id="getAddressVO" parameterType="java.lang.String" resultType="AddressVO">
+        <![CDATA[
+            SELECT * FROM ADDRESS WHERE NO = (SELECT ADDRESS_NO FROM MEMBERS WHERE ID = #{memberId})
+        ]]>
+    </select>
+
 </mapper>

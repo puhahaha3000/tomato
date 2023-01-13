@@ -1,34 +1,150 @@
-.searchButton{
-    width: 80px;
-}
-.d-flex{
-    height: 40px;
-    width: 50vw;
-}
-.col-sm-8>.d-flex{
-    padding-top: 3vh;
-}
-.row{
-    margin-left: 1vw;
-    justify-content: center;
-    margin-top: 3vh;
-}
-.row .col-6{
-    align-items: flex-start;
-    flex-wrap: wrap;
-    display: flex;
-    margin-top: 3vh;
-}
-.col-1 .btn{
-    width: 6vw;
-    margin-top: 2.5vh;
-    margin-right: 5vw;
-}
-.col-1 img{
-    width: 5vw;
-    height: 5vh;
-    display: block;
-    margin:auto;
-    margin-top: 3.5vh;
+* {
+    font-family: 'Do Hyeon', sans-serif;
+    font-size: 20px;
 }
 
+.header,
+.nav {
+    width: 1200px;
+    max-width: none !important;
+}
+
+.searchWrite {
+    border-color: tomato;
+    border-width: 3px;
+}
+
+.searchButton {
+    width: 80px;
+    border-color: tomato;
+    border-width: 3px;
+    color: darkgreen;
+    text-decoration-color: darkgreen;
+}
+
+.tomatologo {
+    width: 100px;
+    height: 100px;
+    margin-left: 30px;
+}
+
+.headerrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.headerrow>.col-1 {
+    height: 50px;
+}
+
+.headerrow>div {
+    top: 50%;
+    left: 50%;
+    margin: 25px 0 0 0px;
+}
+
+.BoardMenu>.btn {
+    border-color: tomato;
+    border: 3px;
+}
+
+.myMarket {
+    text-decoration-line: none;
+}
+
+.myMarket {
+    margin-left: 10px;
+}
+
+.myMarket:active {
+    font-size: larger;
+}
+
+.myMarketCol,
+.LoginCol {
+    display: flex;
+    align-items: center;
+}
+
+.Login {
+    width: 100px;
+    font-size: 15px;
+}
+
+.Login:active {
+    box-shadow: 1px 1px 1px rgb(0, 0, 0, 0.5);
+    position: relative;
+    bottom: 3px;
+}
+
+.navrow {
+    width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.navrow .col-1 {
+    width: 60px;
+    height: 60px;
+    padding-top: 10px;
+}
+
+.selTable,
+.buyTable {
+    width: 1200px;
+}
+.buyTable,.selTable tbody{
+    color: darkgreen
+}
+.buyTableHead,.selTableHead thead{
+    color: tomato;
+}
+.selTableHead{
+    color:tomato
+}
+.sellCol,
+.buyCol {
+    display: flex;
+    align-items: flex-start;
+}
+
+.emptySpace {
+    width: 400px;
+}
+
+.nav {
+    margin-top: 10px;
+}
+
+.buyMorerow,
+.sellMorerow {
+    width: 1200px;
+}
+
+.buyMoreCol,
+.sellMoreCol {
+    width: 1200px;
+    display: flex;
+    justify-content: center;
+}
+
+.writeLog :hover,
+.chatLogo :hover,
+.heartLogo :hover>img {
+    transform: scale(1.4);
+}
+
+.BoardMenu>a {
+    text-decoration-line: none;
+    color: tomato;
+}
+
+.BoardMenu>a:hover {
+    color: darkgreen;
+}
+
+.BoardMenu>a:active {
+    font-size: larger;
+}

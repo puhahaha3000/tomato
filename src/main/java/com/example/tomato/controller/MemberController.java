@@ -1,14 +1,17 @@
 package com.example.tomato.controller;
 
 import com.example.tomato.service.AddressService;
+import com.example.tomato.service.MemberService;
+import com.example.tomato.service.TradeService;
 import com.example.tomato.vo.AddressVO;
+import com.example.tomato.vo.MemberVO;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,8 +20,15 @@ import java.util.List;
 @RequestMapping("/member")
 public class MemberController {
 
-    @Autowired
-    private AddressService addressService;
+    private final AddressService addressService;
+    private final MemberService memberService;
+    private final TradeService tradeService;
+
+    public MemberController(AddressService addressService, MemberService memberService, TradeService tradeService) {
+        this.addressService = addressService;
+        this.memberService = memberService;
+        this.tradeService = tradeService;
+    }
 
     @GetMapping("/signup_view")
     public String signup_view(Model model) {
@@ -31,6 +41,28 @@ public class MemberController {
         model.addAttribute("sido_names", sidoNames);
 
         return "member/signup_view";
+    }
+
+    @GetMapping("/mypage")
+    public String mypage(Model model, HttpSession session) {
+
+        log.info("mypage() ..");
+
+        // String memberId = (String) session.getAttribute("memberId");
+        String memberId = "qwer1234";
+
+        MemberVO memberVO = memberService.mypage(memberId);   // 마이페이지에 띄울 내 정보 가져오기
+//        List<TradeVO> tradeList = tradeService.myTrade(memberId);
+        // TODO: favorite
+//        List<TradeVO> favoriteList = tradeService.myFavorite();
+        // TODO: chatroom count
+//        int chatroomCnt = chatService.
+        AddressVO addressVO = addressService.myAddress(memberId);   // 마이페이지에 내 동네 정보 가져오기
+
+        model.addAttribute("memberVO", memberVO);
+        model.addAttribute("addressVO", addressVO);
+
+        return "member/mypage";
     }
 
 }

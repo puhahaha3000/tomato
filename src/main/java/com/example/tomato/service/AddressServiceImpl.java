@@ -28,11 +28,11 @@ public class AddressServiceImpl implements AddressService {
     }
 
     @Override
-    public List<AddressVO> sigunguNameList(String sido_name) {
+    public List<AddressVO> sigunguNameList(String sidoName) {
 
         log.info("get sigunguNameList() ..");
 
-        List<AddressVO> sigungusNames = addressMapper.getSigunguNameList(sido_name);
+        List<AddressVO> sigungusNames = addressMapper.getSigunguNameList(sidoName);
 
         log.info("DB String List : " + sigungusNames.toString());
 
@@ -46,9 +46,21 @@ public class AddressServiceImpl implements AddressService {
 
         List<AddressVO> dongNames = addressMapper.getDongNameList(sidoName, sigunguName);
 
-        log.info("DB Data List : " + dongNames.toString())
-        ;
+        log.info("DB Data List : " + dongNames.toString());
 
         return dongNames;
+    }
+
+    @Override
+    public AddressVO myAddress(String memberId) {
+
+        log.info("myaddress(memberId) ..");
+
+        AddressVO addressVO = addressMapper.getAddressVO(memberId);
+
+        log.info("address : " + addressVO.getSidoName() + " "
+                + addressVO.getSigunguName() + " " + addressVO.getDongName());
+
+        return addressVO;
     }
 }
