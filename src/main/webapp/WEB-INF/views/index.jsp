@@ -17,10 +17,60 @@
         </head>
 
         <body>
-            <header>
-                <jsp:include page="template/header.jsp" />
-            </header>
-            <div class="container-fluid nav">
+            <div class="container-fluid header" style="width: 1200px; max-width: none !important;">
+                <div class="row headerrow">
+                    <div class="col-2 tomatoCol">
+                        <a href="/tomato/"><img src="img/tomatoLogo.jpg" class="img-rounded tomatologo" alt="토마토"
+                                width="80px" height="80px"></a>
+                    </div>
+                    <div class="col-8 searchCol" style="width: 785px;">
+
+
+                        <form class="d-flex" role="search">
+                            <input class="form-control me-2 searchWrite" type="search" placeholder="입력해주세요"
+                                aria-label="Search" style="border: 3px solid tomato;">
+                            <button class="btn btn-outline-success searchButton" type="submit"
+                                style="border: 3px solid tomato;">검색</button>
+                        </form>
+
+
+                    </div>
+
+                    <div class="col-1 myMarketCol">
+                        <a href="#" class="link-success myMarket">내상점</a>
+
+                    </div>
+                    <div class="col-1 LoginCol" style="width: 110px;">
+                        <a href="http://localhost:8282/tomato/auth/login" class="btn btn-outline-success btn-sm Login"
+                            tabindex="-1" role="button" aria-disabled="true" style="border-radius: 13px;">로그인/회원가입</a>
+                    </div>
+                </div>
+                <div class="row navrow">
+                    <div class="col-6 navCol">
+                        <div class="btn-group BoardMenu">
+                            <a href="#" class="reportBtn">공지사항</a>&nbsp;&nbsp;
+                            <a href="#" class="qnaBtn">QnA</a> &nbsp;&nbsp;
+                            <a href="#" class="tradeBtn">거래게시판</a>
+                        </div>
+                    </div>
+
+                    <div class="col-3 emptySpace" style="width: 400px;">
+
+                    </div>
+                    <div class="col-1 writeLog">
+                        <a href="#"><img src="img/writeIcon.png" class="img-fluid" alt="쓰기"></a>
+                    </div>
+                    <div class="col-1 chatLogo">
+                        <a href="#"><img src="img/chatIcon.png" class="img-fluid" alt="채팅"></a>
+
+                    </div>
+                    <div class="col-1 heartLogo">
+                        <a href="#"><img src="img/heartIcon.png" class="img-fluid" alt="찜"></a>
+                    </div>
+
+                </div>
+            </div>
+            <div class="container-fluid nav" style="width: 1200px; max-width: none !important;">
                 <div class="container-fluid main">
                     <div class="row">
                         <div class="col sellCol">
