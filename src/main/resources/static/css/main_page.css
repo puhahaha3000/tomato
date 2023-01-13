@@ -22,6 +22,11 @@
     text-decoration-color: darkgreen;
 }
 
+.searchButton:active {
+    position: relative;
+    top: 2px;
+}
+
 .tomatologo {
     width: 100px;
     height: 100px;
@@ -55,10 +60,17 @@
 
 .myMarket {
     margin-left: 10px;
+
+
+    cursor: pointer;
+    outline: none;
+
 }
 
 .myMarket:active {
-    font-size: larger;
+
+    position: relative;
+    top: 2px;
 }
 
 .myMarketCol,
@@ -70,12 +82,17 @@
 .Login {
     width: 100px;
     font-size: 15px;
+    border-radius: 10px;
+
+    cursor: pointer;
+    outline: none;
+    box-shadow: 1px 4px 0 rgb(0, 0, 0, 0.5);
 }
 
 .Login:active {
-    box-shadow: 1px 1px 1px rgb(0, 0, 0, 0.5);
+    box-shadow: 1px 1px 0 rgb(0, 0, 0, 0.5);
     position: relative;
-    bottom: 3px;
+    top: 2px;
 }
 
 .navrow {
@@ -95,15 +112,21 @@
 .buyTable {
     width: 1200px;
 }
-.buyTable,.selTable tbody{
+
+.buyTable,
+.selTable tbody {
     color: darkgreen
 }
-.buyTableHead,.selTableHead thead{
+
+.buyTableHead,
+.selTableHead thead {
     color: tomato;
 }
-.selTableHead{
-    color:tomato
+
+.selTableHead {
+    color: tomato
 }
+
 .sellCol,
 .buyCol {
     display: flex;
@@ -148,11 +171,13 @@
 .BoardMenu>a:active {
     font-size: larger;
 }
-.footerRow{
+
+.footerRow {
     display: flex;
     text-align: center;
 }
-.footerRow span{
+
+.footerRow span {
     margin-top: 100px;
     border-top: 3px solid black;
 }

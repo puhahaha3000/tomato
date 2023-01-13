@@ -1,6 +1,76 @@
-.LoginForm{
+.LoginCon {
     width: 1200px;
     max-width: none !important;
-    display: flex;
-    justify-items: center;
+    margin-top: 80px;
+}
+
+
+#LoginForm {
+    width: 400px;
+}
+
+.loginBtn {
+    width: 90px;
+    height: 38px;
+    background-color: tomato;
+    border-radius: 10px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 1px 4px 0 rgb(0, 0, 0, 0.5);
+}
+
+.loginBtn:hover {
+    background-color: darkgreen;
+}
+
+.loginBtn:active {
+    box-shadow: 1px 1px 0 rgb(0, 0, 0, 0.5);
+    position: relative;
+    top: 2px;
+}
+
+.signupBtn {
+    width: 90px;
+    height: 38px;
+    background-color: darkgreen;
+    border-radius: 10px;
+    color: white;
+    border: none;
+    line-height: 38px;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 1px 4px 0 rgb(0, 0, 0, 0.5);
+}
+
+.signupBtn:hover {
+    background-color: tomato;
+    transform: none;
+}
+
+.signupBtn:active {
+    box-shadow: 1px 1px 0 rgb(0, 0, 0, 0.5);
+    position: relative;
+    top: 2px;
+}
+.searchID_PW{
+    text-align: right;
+}
+.searchID_PWBtn{
+    text-decoration-line: none;
+    color: #4169e1;
+}
+.searchID_PWBtn:active{
+    position: relative;
+    top: 2px;
+}
+#kakaoLogin{
+    background-color: gold;
+    box-shadow: 1px 4px 0 rgb(0, 0, 0, 0.5);
+}
+#kakaoLogin:active{
+    position: relative;
+    top: 2px;
+    border: none;
 }
