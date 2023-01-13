@@ -148,3 +148,11 @@
 .BoardMenu>a:active {
     font-size: larger;
 }
+.footerRow{
+    display: flex;
+    text-align: center;
+}
+.footerRow span{
+    margin-top: 100px;
+    border-top: 3px solid black;
+}
