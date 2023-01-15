@@ -10,7 +10,7 @@
 
         $(document).ready(function () {
 
-            // 시/도를 선택했을때 다음 시/군/구 리스트 항목 재구성하는 메소드
+            // 시/도를 바꿨을때 다음 시/군/구 리스트 항목 재구성하는 메소드
             $("#sido_name").change(function() {
                 // sido_name 를 param.
                 let sidoName =  $("#sido_name").val();
@@ -32,6 +32,34 @@
                         for(var i = 0; i<len; i++) {
                             var sigungu_name = data[i];
                             $("#sigungu_name").append("<option value='" + sigungu_name + "'>" + sigungu_name + "</option>");
+                        }
+                    },
+                    error : function(error) {
+
+                        alert("error : " + error);
+                    }
+                });
+            });
+
+            // 시/도를 선택했을때 다음 시/도 리스트 항목 재구성하는 메소드
+            $("#sido_name").click(function() {
+
+                $.ajax({
+                    async: true,
+                    type : 'POST',
+                    url : "sido_name_list",
+                    dataType : "json",
+                    contentType: "application/json; charset=UTF-8",
+                    success : function(data) {
+
+                        var len = data.length;
+
+                        $("#sido_name").empty();
+                        $("#sido_name").append("<option value='" + "선택하세요" + "'>" + "선택하세요" + "</option>");
+
+                        for(var i = 0; i<len; i++) {
+                            var sido_name = data[i];
+                            $("#sido_name").append("<option value='" + sido_name + "'>" + sido_name + "</option>");
                         }
                     },
                     error : function(error) {
@@ -146,6 +174,9 @@
     </script>
 </head>
 <body>
+<header>
+    <jsp:include page="../template/header.jsp" />
+</header>
 <table width="600" cellpadding="0" cellspacing="0" border="1">
     <form id="signInForm" action="join" method="post">
         <tr>
@@ -198,15 +229,15 @@
             <td>
                 시/도
                 <select id="sido_name" name="input_sido_name">
-                    <option value="${addressVO.sidoName}">${addressVO.sidoName}</option>
+                    <option value="${userAddress.sidoName}">${userAddress.sidoName}</option>
                 </select>
                 시/군/구
                 <select id="sigungu_name" name="input_sigungu_name">
-                    <option value="${addressVO.sigunguName}">${addressVO.sigunguName}</option>
+                    <option value="${userAddress.sigunguName}">${userAddress.sigunguName}</option>
                 </select>
                 읍/면/동
                 <select id="dong_name" name="input_dong_name">
-                    <option value="${addressVO.addressNo}">${addressVO.dongName}</option>
+                    <option value="${userAddress.no}">${userAddress.dongName}</option>
                 </select>
             </td>
         </tr>
@@ -215,5 +246,8 @@
         </tr>
     </form>
 </table>
+<footer>
+    <jsp:include page="../template/footer.jsp" />
+</footer>
 </body>
 </html>

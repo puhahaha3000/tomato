@@ -76,10 +76,10 @@ public class MemberController {
         String memberId = "qwer1234";
 
         MemberVO memberVO = memberService.mypage(memberId);   // 회원정보수정 띄울 내 정보 가져오기
-        AddressVO addressVO = addressService.myAddress(memberId);   // 회원정보수정 띄울 내 동네 정보 가져오기
+        AddressVO userAddress = addressService.myAddress(memberId);   // 회원정보수정 띄울 내 동네 정보 가져오기
 
         model.addAttribute("memberVO", memberVO);
-        model.addAttribute("addressVO", addressVO);
+        model.addAttribute("userAddress", userAddress);
 
         return "member/modify";
     }

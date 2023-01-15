@@ -7,6 +7,9 @@
     <title>list</title>
 </head>
 <body>
+<header>
+    <jsp:include page="../template/header.jsp" />
+</header>
 <table width="600" cellpadding="0" cellspacing="0" border="1">
     <form id="signInForm" action="join" method="post">
         <tr>
@@ -35,5 +38,8 @@
         </tr>
     </form>
 </table>
+<footer>
+    <jsp:include page="../template/footer.jsp" />
+</footer>
 </body>
 </html>
