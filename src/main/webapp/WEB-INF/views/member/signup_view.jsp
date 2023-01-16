@@ -56,7 +56,6 @@
                     success : function(data) {
 
                         var len = data.length;
-
                         $("#sigungu_name").empty();
                         $("#sigungu_name").append("<option value='" + "선택하세요" + "'>" + "선택하세요" + "</option>");
 
