@@ -1,0 +1,21 @@
+*{
+    font-family: 'Do Hyeon', sans-serif;
+    font-size: 20px;
+}
+.signupCon{
+    width: 1200px;
+    max-width: none !important;
+    margin-top: 60px;
+}
+.signupTable{
+    width: 1200px;
+    max-width: none !important;
+    display: flex;
+    justify-content: center;
+}
+tr{
+    width: 300px;
+}
+input{
+    width: 200px;
+}

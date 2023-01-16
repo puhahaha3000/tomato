@@ -1,3 +1,7 @@
+* {
+    font-family: 'Do Hyeon', sans-serif;
+    font-size: 20px;
+}
 .LoginCon {
     width: 1200px;
     max-width: none !important;

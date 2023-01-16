@@ -17,9 +17,7 @@
             </head>
 
             <body onload="document.f.id.focus();">
-                <header>
-                    <jsp:include page="../template/header.jsp" />
-                </header>
+
                 <div class="container-fluid LoginCon d-flex justify-content-center">
                     <div class="row LoginRow">
 
@@ -46,7 +44,8 @@
                                     name="PASSWORD" />
                             </div>
                             <%-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> --%>
-                            <div class="searchID_PW"><a href="/tomato/auth/search_id" class="searchID_PWBtn">아이디/비밀번호찾기</a></div>
+                            <div class="searchID_PW"><a href="/tomato/auth/search_id"
+                                    class="searchID_PWBtn">아이디/비밀번호찾기</a></div>
                             <div class="d-flex justify-content-center mt-4">
                                 <button type="submit" class="loginBtn me-2">로그인</button>
                                 <a href="/tomato/member/signup_view" style="text-decoration: none; cursor: pointer;">
@@ -54,14 +53,13 @@
                                 </a>
                             </div>
                             <div class="d-flex justify-content-center">
-                                <a class="btn btn-lg mt-4 kakaoLogin" id="kakaoLogin" href="#" role="button">카카오계정으로 로그인</a>
+                                <a class="btn btn-lg mt-4 kakaoLogin" id="kakaoLogin" href="#" role="button">카카오계정으로
+                                    로그인</a>
                             </div>
                         </form:form>
                     </div>
                 </div>
-                <footer>
-                    <jsp:include page="../template/footer.jsp" />
-                </footer>
+
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
                     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
                     crossorigin="anonymous"></script>
