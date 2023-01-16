@@ -81,7 +81,7 @@
                     <div class="row">
                         <table class="table table-hover selTable">
 
-                            <thead class="table-light selTableHead">
+                            <thead class="table-light selTableHead" style="color: tomato;">
                                 <tr>
                                     <th scope="col">No</th>
                                     <th scope="col">제목</th>
@@ -90,7 +90,7 @@
                                     <th scope="col">조회수</th>
                                 </tr>
                             </thead>
-                            <tbody class="table-group-divider">
+                            <tbody class="table-group-divider" style="color:darkgreen">
                                 <tr>
                                     <th scope="row">1</th>
                                     <td>제목자리1</td>
@@ -132,16 +132,18 @@
                     <div class="row">
                         <table class="table table-hover buyTable">
 
-                            <thead class="table-light buyTableHead">
+                            <thead class="table-light buyTableHead" style="color: tomato;"">
                                 <tr>
-                                    <th scope="col">No</th>
-                                    <th scope="col">제목</th>
-                                    <th scope="col">작성자</th>
-                                    <th scope="col">작성일</th>
-                                    <th scope="col">조회수</th>
+                                    
+                                    <th scope=" col">No</th>
+                                <th scope="col">제목</th>
+                                <th scope="col">작성자</th>
+                                <th scope="col">작성일</th>
+                                <th scope="col">조회수</th>
+
                                 </tr>
                             </thead>
-                            <tbody class="table-group-divider">
+                            <tbody class="table-group-divider" style="color:darkgreen">
                                 <tr>
                                     <th scope="row">1</th>
                                     <td>제목자리</td>
