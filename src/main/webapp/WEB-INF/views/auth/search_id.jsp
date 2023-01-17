@@ -21,7 +21,22 @@
                 <header>
                     <jsp:include page="../template/header.jsp" />
                 </header>
-                
+                <div class="container-fluid searchIdCon">
+                    <div class="searchTable d-flex justify-content-center">
+                    <table>
+                        <form class="searchIdForm" action="" method="post">
+                            <tr>
+                                <td>아이디</td>
+                                <td><input class="inputIdCheck" type="text" name=""></td>
+                            </tr>
+                            <tr>
+                                <td>이메일</td>
+                                <td><input class="inputEmailCheck" type="text" name=""></td>
+                            </tr>
+                        </form>
+                    </table>
+                </div>
+                </div>
                 <footer>
                     <jsp:include page="../template/footer.jsp" />
                 </footer>
