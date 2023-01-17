@@ -1,21 +1,113 @@
-*{
+* {
     font-family: 'Do Hyeon', sans-serif;
     font-size: 20px;
+
 }
-.signupCon{
+
+.signupCon {
     width: 1200px;
     max-width: none !important;
     margin-top: 60px;
 }
-.signupTable{
+
+.signupTable {
     width: 1200px;
     max-width: none !important;
     display: flex;
     justify-content: center;
+    margin-left: 90px;
 }
-tr{
+
+tr {
     width: 300px;
 }
-input{
+
+td {
+    padding-bottom: 10px;
+    padding-left: 10px;
+
+}
+
+input {
     width: 200px;
+    border-radius: 5px;
+}
+
+.btn:not(.searchButton, .Login) {
+    width: 150px !important;
+    height: 30px;
+    text-align: center;
+    line-height: 7px;
+    border: 2.5px solid darkgreen;
+}
+
+#input_id,
+#input_pw,
+#input_name,
+#input_tel,
+#input_email,
+#input_nickname,
+#input_pwCheck {
+    border: 2.5px solid tomato;
+}
+
+#idCheck,
+#pwCheckbtn,
+#emailCheck,
+#nicknameCheck {
+    width: 120px;
+    font-size: 18px;
+    border-color: tomato;
+    border-radius: 5px;
+    color: darkgreen;
+    background-color: white;
+
+}
+
+#idCheck:active,
+#pwCheckbtn:active,
+#emailCheck:active,
+#nicknameCheck:active {
+    position: relative;
+    top: 2px;
+}
+
+#sido_name,
+#sigungu_name,
+#dong_name {
+    width: 150px;
+    font-size: 20px;
+    border: 2.5px solid;
+    border-color: tomato;
+    border-radius: 5px;
+}
+
+.joinBt {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 600px;
+    margin-top: 25px;
+
+
+
+}
+
+.joinButton {
+    border-color: tomato;
+    border-width: 3px;
+    color: darkgreen;
+    text-decoration-color: darkgreen;
+    background-color: white;
+}
+
+.joinButton:active {
+    position: relative;
+    top: 2px;
+}
+
+.joinButton:hover {
+    background-color: darkgreen;
+    color: white;
+    border: 2.5px solid white;
 }
