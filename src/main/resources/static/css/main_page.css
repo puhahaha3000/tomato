@@ -154,8 +154,8 @@
     justify-content: center;
 }
 
-.writeLog :hover,
-.chatLogo :hover,
+.writeLog :hover>img,
+.chatLogo :hover>img,
 .heartLogo :hover>img {
     transform: scale(1.4);
 }
