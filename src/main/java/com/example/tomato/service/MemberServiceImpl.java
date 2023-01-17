@@ -67,4 +67,12 @@ public class MemberServiceImpl implements MemberService {
 
         return memberVO;
     }
+
+    @Override
+    public int getNo(String id) {
+
+        return memberMapper.getNo(id);
+    }
+
+
 }

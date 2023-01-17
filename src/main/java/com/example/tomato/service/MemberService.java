@@ -8,4 +8,6 @@ public interface MemberService {
     int id_confirm(String userid);   // 아이디 중복 확인 서비스
     int nickname_confirm(String userNickname);   // 닉네임 중복 확인 서비스
     MemberVO mypage(String memberId);   // 마이페이지에 띠울 내 정보 가져오는 서비스
+
+    int getNo(String id);
 }

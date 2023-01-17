@@ -3,6 +3,7 @@ package com.example.tomato.mapper;
 import com.example.tomato.vo.MemberVO;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 
 @Mapper
 public interface MemberMapper{
@@ -19,4 +20,7 @@ public interface MemberMapper{
     int idCheck(String userid);   // 입력한 아이디 데이터베이스 통신을 통해 중복(카운트로 아이디 갯수 출력) 확인
     int nicknameCheck(String userNickname);    // 입력한 닉네임 데이터베이스 통신을 통해 중복(카운트로 닉네임 갯수 출력) 확인
     MemberVO getMemberVO(String memberId);   // 세션값에 있는 멤버아이디로 닉네임을 가져온다.
+
+    @Select("SELECT NO FROM MEMBERS WHERE ID = #{id}")
+    int getNo(String id);
 }
