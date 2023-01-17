@@ -63,4 +63,16 @@ public class AddressServiceImpl implements AddressService {
 
         return addressVO;
     }
+
+    @Override
+    public List<AddressVO> sejong(String sidoName) {
+
+        log.info("get sejong() ..");
+
+        List<AddressVO> dongNames = addressMapper.getSejong(sidoName);
+
+        log.info("DB String List : " + dongNames.toString());
+
+        return dongNames;
+    }
 }

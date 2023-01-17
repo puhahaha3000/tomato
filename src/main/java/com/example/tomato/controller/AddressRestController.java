@@ -30,6 +30,10 @@ public class AddressRestController {
 
         log.info("sigunguName_list() ..");
 
+        if(sido_name.equals("세종특별자치시")) {
+            return addressService.sejong(sido_name);
+        }
+
         return addressService.sigunguNameList(sido_name);
     }
 
