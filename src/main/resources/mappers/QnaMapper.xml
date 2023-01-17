@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.tomato.mapper.QnaMapper">
+
+    <!-- mybatis.type-aliases-package=com.example.tomato.vo -->
+    <!-- CDATA 내용에 있는 SQL 문에 세미콜론 붙이지 말것 -->
+
+    <!-- 주소 관련 테이블이 없어서 임시적으로 주소 컬럼 데이터를 제외한 데이터를 추가 -->
+
+    <resultMap id="QnaMap" type="QnaVO">
+        <id property="no" column="NO"/>
+        <result property="hiddenFlag" column="HIDDEN_FLAG"/>
+        <result property="completeFlag" column="COMPLETE_FLAG"/>
+        <collection property="boardList" resultMap="boardMap"/>
+    </resultMap>
+
+    <resultMap id="boardMap" type="BoardVO">
+        <id property="no" column="NO"/>
+        <result property="memberNo" column="MEMBER_NO"/>
+        <result property="title" column="TITLE"/>
+        <result property="content" column="CONTENT"/>
+        <result property="createDate" column="CREATE_DATE"/>
+        <result property="modifiedDate" column="MODIFIED_DATE"/>
+        <result property="hit" column="HIT"/>
+        <result property="delFlag" column="DEL_FLAG"/>
+        <collection property="memberList" resultMap="memberMap"/>
+    </resultMap>
+
+    <resultMap id="memberMap" type="MemberVO">
+        <id property="no" column="NO"/>
+        <result property="id" column="ID"/>
+    </resultMap>
+
+    <select id="getList" parameterType="PagingVO" resultMap="QnaMap">
+        <![CDATA[
+            SELECT *
+            FROM (SELECT ROWNUM AS RNUM, R.*
+                  FROM (SELECT *
+                      FROM QNAS Q, BOARD B, MEMBERS M
+                      WHERE Q.BOARD_NO = B.NO
+                      AND B.MEMBER_NO = M.NO
+                      ORDER BY Q.NO DESC) R)
+            WHERE RNUM BETWEEN #{pageBegin} AND #{pageEnd};
+        ]]>
+    </select>
+
+</mapper>
