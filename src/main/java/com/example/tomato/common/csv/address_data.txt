@@ -1,3 +1,4 @@
+NO|SIDO_NAME|SIGUNGU_NAME|DONG_NAME
 1|강원도|강릉시|강동면
 2|강원도|강릉시|강문동
 3|강원도|강릉시|견소동

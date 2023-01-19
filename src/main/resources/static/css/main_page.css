@@ -86,11 +86,11 @@
 
     cursor: pointer;
     outline: none;
-    box-shadow: 1px 4px 0 rgb(0, 0, 0, 0.5);
+    box-shadow: 1px 4px 0 rgb(0, 0, 0, 0.2);
 }
 
 .Login:active {
-    box-shadow: 1px 1px 0 rgb(0, 0, 0, 0.5);
+    box-shadow: 1px 1px 0 rgb(0, 0, 0, 0.2);
     position: relative;
     top: 2px;
 }
@@ -106,7 +106,7 @@
     width: 60px;
     height: 60px;
     padding-top: 10px;
-    
+
 }
 
 .selTable,
@@ -154,8 +154,8 @@
     justify-content: center;
 }
 
-.writeLog :hover,
-.chatLogo :hover,
+.writeLog :hover>img,
+.chatLogo :hover>img,
 .heartLogo :hover>img {
     transform: scale(1.4);
 }

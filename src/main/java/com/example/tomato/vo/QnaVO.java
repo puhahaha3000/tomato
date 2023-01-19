@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 /*
 ------------- -------- ------- 
 NO            NOT NULL NUMBER  
@@ -20,4 +22,6 @@ public class QnaVO {
 	private int boardNo;
 	private char hiddenFlag;
 	private char completeFlag;
+
+	private List<BoardVO> boardVOList;
 }

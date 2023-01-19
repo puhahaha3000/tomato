@@ -17,7 +17,7 @@
             </head>
 
             <body onload="document.f.id.focus();">
-
+                
                 <div class="container-fluid LoginCon d-flex justify-content-center">
                     <div class="row LoginRow">
 
@@ -41,7 +41,7 @@
                             <div class="mb-3">
                                 <label for="password" class="form-label">비밀번호</label>
                                 <input type="password" class="form-control" id="exampleInputPassword1 password"
-                                    name="PASSWORD" />
+                                    name="password" />
                             </div>
                             <%-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> --%>
                             <div class="searchID_PW"><a href="/tomato/auth/search_id"

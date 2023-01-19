@@ -1,10 +1,11 @@
 package com.example.tomato.vo;
 
-import java.sql.Timestamp;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.sql.Timestamp;
+import java.util.List;
 
 /*
 ------------- -------- -------------- 
@@ -30,4 +31,6 @@ public class BoardVO {
 	private Timestamp modified_date;
 	private int hit;
 	private char delFlag;
+
+	private List<MemberVO> memberVOList;
 }
