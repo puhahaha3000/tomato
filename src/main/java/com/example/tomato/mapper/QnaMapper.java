@@ -2,7 +2,6 @@ package com.example.tomato.mapper;
 
 import com.example.tomato.vo.PagingVO;
 import com.example.tomato.vo.QnaVO;
-import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -19,9 +18,6 @@ public interface QnaMapper {
 
     @Insert("INSERT INTO QNAS (NO, BOARD_NO, HIDDEN_FLAG) VALUES (QNA_NO_SEQ.nextval, BOARD_NO_SEQ.currval, #{hiddenFlag})")
     int insert(char hiddenFlag);
-
-    @Delete("DELETE FROM QNAS WHERE NO = #{no}")
-    int delete(int no);
 
     @Select("SELECT BOARD_NO FROM QNAS WHERE NO = #{no}")
     int getBoardNo(int no);

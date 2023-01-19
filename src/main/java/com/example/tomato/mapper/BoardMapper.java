@@ -10,6 +10,6 @@ public interface BoardMapper {
     @Insert("INSERT INTO BOARD (NO, MEMBER_NO, TITLE, CONTENT) VALUES (BOARD_NO_SEQ.nextval, #{no}, #{title}, #{content})")
     int insert(BoardVO boardVO, int memberNo);
 
-    @Delete("DELETE FROM BOARD WHERE NO = #{no}")
+    @Delete("UPDATE BOARD SET DEL_FLAG = 'Y' WHERE NO = #{no}")
     int delete(int no);
 }

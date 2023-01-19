@@ -42,8 +42,7 @@ public class QnaServiceImpl implements QnaService {
     @Override
     public boolean delete(int no) {
         int boardNo = qnaMapper.getBoardNo(no);
-        int qnaResult = qnaMapper.delete(no);
         int boardResult = boardMapper.delete(boardNo);
-        return boardResult == 1 && qnaResult == 1;
+        return boardResult == 1;
     }
 }
