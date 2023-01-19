@@ -33,11 +33,17 @@ public class QnaRestController {
         return qnaService.getList(pagingVO);
     }
 
-    @PostMapping("/write/{hiddenFlag}")
+    @PostMapping("/{hiddenFlag}")
     public boolean write(@RequestBody BoardVO boardVO, @PathVariable char hiddenFlag) {
         log.info("write()...");
         String id = ((UserDetails) (SecurityContextHolder.getContext().getAuthentication()).getPrincipal()).getUsername();
         int no = memberService.getNo(id);
         return qnaService.write(boardVO, no, hiddenFlag);
+    }
+
+    @DeleteMapping("/{no}")
+    public boolean delete(@PathVariable String no) {
+        log.info("delete()...");
+        return qnaService.delete(Integer.parseInt(no));
     }
 }

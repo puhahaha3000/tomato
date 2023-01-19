@@ -11,4 +11,6 @@ public interface QnaService {
     int getCount();
 
     boolean write(BoardVO boardVO, int memberNo, char hiddenFlag);
+
+    boolean delete(int no);
 }

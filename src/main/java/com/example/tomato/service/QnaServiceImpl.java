@@ -38,4 +38,12 @@ public class QnaServiceImpl implements QnaService {
         int qnaResult = qnaMapper.insert(hiddenFlag);
         return boardResult == 1 && qnaResult == 1;
     }
+
+    @Override
+    public boolean delete(int no) {
+        int boardNo = qnaMapper.getBoardNo(no);
+        int qnaResult = qnaMapper.delete(no);
+        int boardResult = boardMapper.delete(boardNo);
+        return boardResult == 1 && qnaResult == 1;
+    }
 }
