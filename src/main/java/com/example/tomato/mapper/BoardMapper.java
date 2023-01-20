@@ -7,8 +7,8 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface BoardMapper {
-    @Insert("INSERT INTO BOARD (NO, MEMBER_NO, TITLE, CONTENT) VALUES (BOARD_NO_SEQ.nextval, #{no}, #{title}, #{content})")
-    int insert(BoardVO boardVO, int memberNo);
+    @Insert("INSERT INTO BOARD (NO, MEMBER_NO, TITLE, CONTENT) VALUES (BOARD_NO_SEQ.nextval, #{memberNo}, #{title}, #{content})")
+    int insert(BoardVO boardVO);
 
     @Delete("UPDATE BOARD SET DEL_FLAG = 'Y' WHERE NO = #{no}")
     int delete(int no);

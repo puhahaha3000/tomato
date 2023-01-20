@@ -1,10 +1,10 @@
 package com.example.tomato.vo;
 
-import java.sql.Timestamp;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 /*
 ------------- -------- ------ 
@@ -28,4 +28,6 @@ public class TradeVO {
 	private int buyerNo;
 	private int statusNo;
 	private int price;
+
+	private List<BoardVO> boardVOList;
 }

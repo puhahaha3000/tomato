@@ -6,8 +6,6 @@ import com.example.tomato.vo.BoardVO;
 import com.example.tomato.vo.PagingVO;
 import com.example.tomato.vo.QnaVO;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -36,9 +34,9 @@ public class QnaRestController {
     @PostMapping("/{hiddenFlag}")
     public boolean write(@RequestBody BoardVO boardVO, @PathVariable char hiddenFlag) {
         log.info("write()...");
-        String id = ((UserDetails) (SecurityContextHolder.getContext().getAuthentication()).getPrincipal()).getUsername();
-        int no = memberService.getNo(id);
-        return qnaService.write(boardVO, no, hiddenFlag);
+        // String id = ((UserDetails) (SecurityContextHolder.getContext().getAuthentication()).getPrincipal()).getUsername();
+        // int no = memberService.getNo(id);
+        return qnaService.write(boardVO, hiddenFlag);
     }
 
     @DeleteMapping("/{no}")

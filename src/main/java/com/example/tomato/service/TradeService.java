@@ -8,4 +8,6 @@ import java.util.List;
 public interface TradeService {
     List<TradeVO> myTrade(String memberId);
     List<ItemCategoryVO> itemList();
+
+    void writeTrade(TradeVO tradeVO);
 }

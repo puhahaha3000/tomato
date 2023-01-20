@@ -33,8 +33,8 @@ public class QnaServiceImpl implements QnaService {
     }
 
     @Override
-    public boolean write(BoardVO boardVO, int memberNo, char hiddenFlag) {
-        int boardResult = boardMapper.insert(boardVO, memberNo);
+    public boolean write(BoardVO boardVO, char hiddenFlag) {
+        int boardResult = boardMapper.insert(boardVO);
         int qnaResult = qnaMapper.insert(hiddenFlag);
         return boardResult == 1 && qnaResult == 1;
     }
