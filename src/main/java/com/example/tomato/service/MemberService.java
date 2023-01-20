@@ -10,4 +10,7 @@ public interface MemberService {
     MemberVO mypage(String memberId);   // 마이페이지에 띠울 내 정보 가져오는 서비스
 
     int getNo(String id);
+    
+    MemberVO findId(String email, String name);	//email과 이름을 통하여 member id조회
+	int sendMail(String email, String title, String content);		//email을 통하여 title과 content발송
 }
