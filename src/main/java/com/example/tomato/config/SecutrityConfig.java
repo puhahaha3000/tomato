@@ -27,7 +27,10 @@ public class SecutrityConfig extends WebSecurityConfigurerAdapter {
 		http.formLogin()
 			.loginPage("/login")
 			.usernameParameter("ID")
-			.defaultSuccessUrl("/");
+			.defaultSuccessUrl("/")
+			.failureHandler((req, res, e) -> {
+				e.printStackTrace();
+			});
 
 		http.authorizeHttpRequests()
 		.antMatchers("/member/**").permitAll()

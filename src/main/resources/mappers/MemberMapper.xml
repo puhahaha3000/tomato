@@ -8,7 +8,7 @@
       <id property="id" column="id"/>
       <result property="password" column="password"/>
       <result property="enabled" column="enabled"/>
-      <collection property="authList" resultMap="authMap"></collection>   
+      <collection property="authorityList" resultMap="authMap"></collection>   
    </resultMap>
     
     <resultMap id="authMap" type="AuthorityVO">
