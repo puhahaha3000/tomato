@@ -49,11 +49,5 @@
               SELECT NO, ID, ADDRESS_NO, NAME, TEL, EMAIL, NICKNAME FROM MEMBERS WHERE ID = #{memberId}
         ]]>
     </select>
-    
-    <select id="getMemberByEmailAndName" resultType="MemberVO">
-        <![CDATA[
-              SELECT ID, EMAIL FROM MEMBERS WHERE EMAIL = #{email} AND NAME = #{name}
-        ]]>
-    </select>
 
 </mapper>
