@@ -42,15 +42,17 @@ public class TradeServiceImpl implements TradeService {
     }
 
     @Override
-    public void writeTrade(TradeVO tradeVO) {
+    public boolean writeTrade(TradeVO tradeVO) {
 
         log.info("insertTrade() ..");
 
         List<BoardVO> boardVO = tradeVO.getBoardVOList();
         log.info(boardVO.get(0).toString());
+        log.info(boardVO.get(0).getNo() + "num");
 
         int boardResult = boardMapper.insert(boardVO.get(0));
-        int tradeResult = tradeMapper.insert(tradeVO);
+        int tradeResult = tradeMapper.insertTradeBoard(tradeVO);
 
+        return boardResult == 1 & tradeResult == 1;
     }
 }

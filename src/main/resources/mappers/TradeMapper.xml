@@ -15,4 +15,11 @@
         ]]>
     </select>
 
+    <insert id="insertTradeBoard">
+        <![CDATA[
+              INSERT INTO TRADE(NO, BOARD_NO, ITEM_CATEGORY, ADDRESS_NO, STATUS_NO ,PRICE)
+              VALUES (TRADE_NO_SEQ.nextval, BOARD_NO_SEQ.currval, #{itemCategory}, #{addressNo}, #{statusNo}, #{price})
+        ]]>
+    </insert>
+
 </mapper>
