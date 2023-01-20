@@ -33,7 +33,7 @@ public class TradeController {
     @GetMapping("write_view")
     public String writeView(Model model) {
 
-        String memberId = "qwer1234";
+        String memberId = "qnddj0213";
 
         log.info("writeView() ..");
 

@@ -30,8 +30,17 @@ public class TradeRestController {
         ResponseEntity<String> entity = null;
 
         try {
-            tradeService.writeTrade(tradeVO);   // 회원가입 서비스 요청
-            entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
+            boolean result = tradeService.writeTrade(tradeVO);
+
+            if(result == true) {
+                entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
+            }
+            else {
+                Exception e = new Exception();
+                e.printStackTrace();
+
+                entity = new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
+            }
 
         }
         catch (Exception e) {

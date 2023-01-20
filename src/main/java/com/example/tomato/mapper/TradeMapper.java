@@ -11,8 +11,7 @@ public interface TradeMapper {
 
     List<ItemCategoryVO> getItemList();
 
-    // @Insert()
-    int insert(TradeVO tradeVO);
+    int insertTradeBoard(TradeVO tradeVO);
 
 }
 
