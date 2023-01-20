@@ -10,7 +10,7 @@ public interface QnaService {
     List<QnaVO> getList(PagingVO pagingVO);
     int getCount();
 
-    boolean write(BoardVO boardVO, int memberNo, char hiddenFlag);
+    boolean write(BoardVO boardVO, char hiddenFlag);
 
     boolean delete(int no);
 }

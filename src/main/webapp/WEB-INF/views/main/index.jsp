@@ -58,7 +58,7 @@
 
                     </div>
                     <div class="col-1 writeLog">
-                        <a href="#"><img src="img/writeIcon.png" class="img-fluid" alt="쓰기"></a>
+                        <a href="http://localhost:8282/tomato/trade/write_view"><img src="img/writeIcon.png" class="img-fluid" alt="쓰기"></a>
                     </div>
                     <div class="col-1 chatLogo">
                         <a href="#"><img src="img/chatIcon.png" class="img-fluid" alt="채팅"></a>
