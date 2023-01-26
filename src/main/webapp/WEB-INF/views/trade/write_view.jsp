@@ -14,7 +14,7 @@
     <jsp:include page="../template/header.jsp" />
 </header>
 <table width="1000" cellpadding="0" cellspacing="0" border="1">
-    <form id="tradeForm" action="write" method="post">
+    <form id="tradeForm" action="write" method="post" enctype="multipart/form-data">
         <input type="hidden" id="memberNo" value="${memberVO.no}">
         <tr>
             <td>현재상태</td>
@@ -76,7 +76,7 @@
         <tr>
             <td>사진 추가</td>
             <td>
-<%--                <input type="file" name="files" multiple="multiple"/>--%>
+                <input id="files" name="fileupload" type="file" multiple="multiple"/>
             </td>
         </tr>
         <tr>

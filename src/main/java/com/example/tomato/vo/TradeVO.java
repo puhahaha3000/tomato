@@ -30,4 +30,5 @@ public class TradeVO {
 	private int price;
 
 	private List<BoardVO> boardVOList;
+	// private List<TestImageVO> imageVOList;   // Test imageList
 }

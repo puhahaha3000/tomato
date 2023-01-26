@@ -12,6 +12,8 @@ $(document).ready(function () {
         let statusNo = $("#status").val();
         let price = $("#input_price").val();
 
+        let file = $('#files')[0].files[0];
+        let formData = new FormData();
 
         let boardVO = {
             memberNo: memberNo,
@@ -23,16 +25,20 @@ $(document).ready(function () {
             itemCategory: itemCategory,
             addressNo: addressNo,
             statusNo: statusNo,
-            price : price,
-            boardVOList : [boardVO]
+            price: price,
+            boardVOList: [boardVO],
         };
+
+        formData.append('file', file);
+        formData.append('tradeVO', new Blob([JSON.stringify(tradeVO)], {type: "application/json"}));
 
         $.ajax({
             type: "POST",
             url: "/tomato/trade/write",
             cache: false,
-            contentType: 'application/json; charset=utf-8',
-            data: JSON.stringify(tradeVO),
+            contentType: false,
+            processData: false,
+            data: formData,
             success: function (result) {
                 console.log(result);
                 $(location).attr('href', '/tomato');
