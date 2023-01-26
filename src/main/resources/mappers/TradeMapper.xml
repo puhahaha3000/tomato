@@ -22,4 +22,11 @@
         ]]>
     </insert>
 
+    <insert id="insertTradeImage">
+        <![CDATA[
+              INSERT INTO IMAGE(NO, TRADE_NO, FILENAME, FILEPATH)
+              VALUES (IMAGE_NO_SEQ.nextval, TRADE_NO_SEQ.currval, #{filename}, #{filepath})
+        ]]>
+    </insert>
+
 </mapper>
