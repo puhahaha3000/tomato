@@ -26,24 +26,27 @@
                     <div class="searchTable d-flex justify-content-center mt-5">
                         <form class="searchPWForm row mt-3" style="display: block;" action="" method="post">
                             <div>
-                                <div class="col-12"style="margin-left: 115px;">
-                                    <label for="nameInput" class="form-label">이름</label>
+                                <div class="col-12" style="margin-left: 115px;">
+                                    <label for="nameInput" class="form-label">아이디</label>
+                                    ${memberVO.id}
+                                </div>
+                            </div>
+                            <div>
+                                <div class="col-12" style="margin-left: 115px;">
+                                    <label for="nameInput" class="form-label">비밀번호</label>
                                     <input type="text" class="form-control" id="nameInput">
                                 </div>
                             </div>
-                            <div class="row align-items-end"style="margin-left: 100px;">
+                            <div class="row align-items-end" style="margin-left: 100px;">
                                 <div class="col-11 mt-2">
-                                    <label for="EmailInput" class="form-label">이메일</label>
+                                    <label for="EmailInput" class="form-label">비밀번호확인</label>
                                     <input type="email" class="form-control" id="EmailInput">
-                                    
+
                                 </div>
-                                <div class="col-1">
-                                    <input class="btn" id="emailCheck" type="button" value="인증">
-                            </div>
                             </div>
                             <div class="d-grid gap-2 col-12 align-items-center justify-content-center mt-5">
                                 <button type="submit" class="Sbtn">
-                                    비밀번호 찾기</button>
+                                    비밀번호 변경</button>
                             </div>
                         </form>
                     </div>
