@@ -28,7 +28,6 @@ public class AuthController {
     }
 
 	/* 메인페이지 로그아웃 */
-<<<<<<< HEAD
 	@RequestMapping(value = "logout.do", method = RequestMethod.GET)
 	public String logoutMainGET(HttpServletRequest request) throws Exception {
 
@@ -119,18 +118,4 @@ public class AuthController {
 		model.addAttribute("pageName", pageName);
 		return "template/template";
 	}
-=======
-	@RequestMapping(value="logout.do", method=RequestMethod.GET)
-    public String logoutMainGET(HttpServletRequest request) throws Exception{
-        
-        log.info("logoutMainGET()..");
-        
-        HttpSession session = request.getSession();
-        
-        session.invalidate();
-        
-        return "redirect:/";        
-        
-    }
->>>>>>> 393b13a30fd00d1c08da22f90acd3438b39b1e02
 }
