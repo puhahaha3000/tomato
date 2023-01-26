@@ -23,4 +23,6 @@ public interface MemberMapper{
 
     @Select("SELECT NO FROM MEMBERS WHERE ID = #{id}")
     int getNo(String id);
+
+    MemberVO getMemberByEmailAndName(String email, String name);    //email과 이름을 통하여 member id조회
 }
