@@ -10,9 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.example.tomato.service.MemberService;
-import com.example.tomato.vo.MemberVO;
-
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -20,22 +17,18 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/auth")
 public class AuthController {
 
-	private final MemberService memberService;
-
-	public AuthController(MemberService memberService) {
-		this.memberService = memberService;
-	}
-
-	/* 메인페이지 로그인 */
+	
+	
 	@GetMapping("/login")
-	public String login(Model model) {
-		log.info("login()..");
-		String pageName = "../auth/login.jsp";
-		model.addAttribute("pageName", pageName);
-		return "template/template";
-	}
+    public String login(Model model) {
+        log.info("login()...");
+        String pageName = "../auth/login.jsp";
+        model.addAttribute("pageName", pageName);
+        return "template/template";
+    }
 
 	/* 메인페이지 로그아웃 */
+<<<<<<< HEAD
 	@RequestMapping(value = "logout.do", method = RequestMethod.GET)
 	public String logoutMainGET(HttpServletRequest request) throws Exception {
 
@@ -126,4 +119,18 @@ public class AuthController {
 		model.addAttribute("pageName", pageName);
 		return "template/template";
 	}
+=======
+	@RequestMapping(value="logout.do", method=RequestMethod.GET)
+    public String logoutMainGET(HttpServletRequest request) throws Exception{
+        
+        log.info("logoutMainGET()..");
+        
+        HttpSession session = request.getSession();
+        
+        session.invalidate();
+        
+        return "redirect:/";        
+        
+    }
+>>>>>>> 393b13a30fd00d1c08da22f90acd3438b39b1e02
 }

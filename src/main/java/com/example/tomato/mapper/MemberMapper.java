@@ -9,6 +9,9 @@ import org.apache.ibatis.annotations.Select;
 public interface MemberMapper{
 
 	MemberVO getMember(String name);
+   
+    // @Insert("insert into members(no,id,address_no,password,name,tel,email,nickname,del_flag) values(#{no},#{id},#{addressNo},#{password},#{name},#{tel},#{email},#{nickname},#{delFlag})")
+    // public int insertMember(MemberVO memberVO);
 
     @Insert("insert into authorities(member_no) values(member_no_seq.currval)")
     void insertAuthorities();
@@ -20,6 +23,4 @@ public interface MemberMapper{
 
     @Select("SELECT NO FROM MEMBERS WHERE ID = #{id}")
     int getNo(String id);
-    
-    MemberVO getMemberByEmailAndName(String email, String name);	//email과 이름을 통하여 member id조회
 }

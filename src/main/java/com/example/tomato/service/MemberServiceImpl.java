@@ -1,114 +1,78 @@
 package com.example.tomato.service;
 
-import javax.mail.MessagingException;
-import javax.mail.internet.MimeMessage;
-
+import com.example.tomato.mapper.MemberMapper;
+import com.example.tomato.vo.MemberVO;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import com.example.tomato.mapper.MemberMapper;
-import com.example.tomato.vo.MemberVO;
-
-import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Service
 @Transactional
 public class MemberServiceImpl implements MemberService {
 
-	@Autowired
-	private MemberMapper memberMapper;
-	
-	@Autowired
-	private JavaMailSender javaMailSender;
-	
-	// 유저 회원가입
-	@Override
-	public void join(MemberVO memberVO) {
+    @Autowired
+    private MemberMapper memberMapper;
 
-		log.info("join() ..");
+    // 유저 회원가입
+    @Override
+    public void join(MemberVO memberVO) {
 
-		memberVO.setPassword(new BCryptPasswordEncoder().encode(memberVO.getPassword()));
+        log.info("join() ..");
 
-		memberMapper.insertMember(memberVO);
-		memberMapper.insertAuthorities();
-	}
+        memberVO.setPassword(new BCryptPasswordEncoder().encode(memberVO.getPassword()));
 
-	// 아이디 중복 체크
-	@Override
-	public int id_confirm(String userid) {
+        memberMapper.insertMember(memberVO);
+        memberMapper.insertAuthorities();
+    }
 
-		log.info("id_check() ..");
+    // 아이디 중복 체크
+    @Override
+    public int id_confirm(String userid) {
 
-		int idCheckNum = memberMapper.idCheck(userid);
+        log.info("id_check() ..");
 
-		log.info("DB val : " + idCheckNum);
+        int idCheckNum = memberMapper.idCheck(userid);
 
-		return idCheckNum;
-	}
+        log.info("DB val : " + idCheckNum);
 
-	// 닉네임 중복 체크
-	@Override
-	public int nickname_confirm(String userNickname) {
 
-		log.info("nickname_check() ..");
+        return idCheckNum;
+    }
 
-		int nicknameCheckNum = memberMapper.nicknameCheck(userNickname);
+    // 닉네임 중복 체크
+    @Override
+    public int nickname_confirm(String userNickname) {
 
-		log.info("DB val : " + nicknameCheckNum);
+        log.info("nickname_check() ..");
 
-		return nicknameCheckNum;
-	}
+        int nicknameCheckNum = memberMapper.nicknameCheck(userNickname);
 
-	// 마이페이지의 내 정보 가져오기
-	@Override
-	public MemberVO mypage(String memberId) {
+        log.info("DB val : " + nicknameCheckNum);
 
-		log.info("mypage() ..");
+        return nicknameCheckNum;
+    }
 
-		MemberVO memberVO = memberMapper.getMemberVO(memberId);
+    // 마이페이지의 내 정보 가져오기
+    @Override
+    public MemberVO mypage(String memberId) {
 
-		log.info("User Information : " + memberVO.toString());
+        log.info("mypage() ..");
 
-		return memberVO;
-	}
+        MemberVO memberVO = memberMapper.getMemberVO(memberId);
 
-	@Override
-	public int getNo(String id) {
+        log.info("User Information : " + memberVO.toString());
 
-		return memberMapper.getNo(id);
-	}
+        return memberVO;
+    }
 
-	// email과 이름을 통하여 member id조회
-	@Override
-	public MemberVO findId(String email, String name) {
-		log.info("searchId() ..");
+    @Override
+    public int getNo(String id) {
 
-		MemberVO memberVO = memberMapper.getMemberByEmailAndName(email, name);
+        return memberMapper.getNo(id);
+    }
 
-		log.info("Member id and email : " + memberVO.toString());
-
-		return memberVO;
-	}
-
-	@Override
-	public int sendMail(String email, String title, String content) {
-		try {
-            MimeMessage mimeMessage = javaMailSender.createMimeMessage();
-            MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true, "utf-8");
-            helper.setTo(email);	//수신자 email 주소
-            helper.setSubject(title);	//발신 제목
-            helper.setText(content);
-            javaMailSender.send(mimeMessage);
-            return 0;
-        } catch (MessagingException e) {
-            e.printStackTrace();
-            return 1;
-        }
-	}
 
 }
