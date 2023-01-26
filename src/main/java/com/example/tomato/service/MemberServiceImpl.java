@@ -3,7 +3,13 @@ package com.example.tomato.service;
 import com.example.tomato.mapper.MemberMapper;
 import com.example.tomato.vo.MemberVO;
 import lombok.extern.slf4j.Slf4j;
+
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,6 +21,9 @@ public class MemberServiceImpl implements MemberService {
 
     @Autowired
     private MemberMapper memberMapper;
+    
+    @Autowired
+    private JavaMailSender javaMailSender;
 
     // 유저 회원가입
     @Override
@@ -74,5 +83,28 @@ public class MemberServiceImpl implements MemberService {
         return memberMapper.getNo(id);
     }
 
+    // email과 이름을 통하여 member id조회
+    @Override
+    public MemberVO findId(String email, String name) {
+        log.info("searchId() ..");
+        MemberVO memberVO = memberMapper.getMemberByEmailAndName(email, name);
+        return memberVO;
+    }
+
+    @Override
+    public int sendMail(String email, String title, String content) {
+        try {
+            MimeMessage mimeMessage = javaMailSender.createMimeMessage();
+            MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true, "utf-8");
+            helper.setTo(email);    //수신자 email 주소
+            helper.setSubject(title);    //발신 제목
+            helper.setText(content);
+            javaMailSender.send(mimeMessage);
+            return 0;
+        } catch (MessagingException e) {
+            e.printStackTrace();
+            return 1;
+        }
+    }
 
 }
