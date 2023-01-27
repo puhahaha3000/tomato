@@ -17,11 +17,11 @@ public class TestController {
         return "main/index";
     }
 	
-	@GetMapping("/modify")
-    public String modify() {
-        log.info("modify()...");
+	@GetMapping("/init_password")
+    public String search_id() {
+        log.info("auth/init_password()...");
         
-        return "member/modify";
+        return "auth/init_password";
     }
 
 }
