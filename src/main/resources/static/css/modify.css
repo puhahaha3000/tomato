@@ -1,0 +1,30 @@
+* {
+    font-family: 'Do Hyeon', sans-serif;
+    font-size: 20px;
+}
+.modifyCon{
+    width: 1200px;
+    max-width: none !important;
+    display: flex;
+    justify-content: center;
+}
+.writeInput{
+    width: 305px;
+    margin-right: 20px;
+}
+.inputName{
+    width: 150px;
+}
+.modifyBtn{
+    width: 170px;
+    display: inline-block;
+}
+td{
+    display: flex;
+    flex-wrap: nowrap;
+}
+tr{
+    display: flex;
+    flex-wrap: nowrap;
+    margin-bottom: 10px;
+}

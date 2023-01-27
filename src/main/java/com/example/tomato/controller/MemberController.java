@@ -73,13 +73,16 @@ public class MemberController {
         log.info("modify() ..");
 
         // String memberId = (String) session.getAttribute("memberId");
-        String memberId = "qwer1234";
+        // String memberId = "qwer1234";
 
-        MemberVO memberVO = memberService.mypage(memberId);   // 회원정보수정 띄울 내 정보 가져오기
-        AddressVO userAddress = addressService.myAddress(memberId);   // 회원정보수정 띄울 내 동네 정보 가져오기
+        // MemberVO memberVO = memberService.mypage(memberId);   // 회원정보수정 띄울 내 정보 가져오기
+        // AddressVO userAddress = addressService.myAddress(memberId); 
+        List<AddressVO> sidoNames = new ArrayList<>();
+        sidoNames = addressService.sidoNameList();
 
-        model.addAttribute("memberVO", memberVO);
-        model.addAttribute("userAddress", userAddress);
+        model.addAttribute("sido_names", sidoNames);  // 회원정보수정 띄울 내 동네 정보 가져오기
+        // model.addAttribute("memberVO", memberVO);
+        // model.addAttribute("userAddress", userAddress);
 
         return "member/modify";
     }

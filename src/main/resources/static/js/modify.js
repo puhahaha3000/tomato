@@ -13,7 +13,7 @@ $(document).ready(function () {
             dataType : "json",
             contentType: "application/json; charset=UTF-8",
             success : function(data) {
-
+                console.log("체인지");
                 if(data[0].dongName == "가람동") {
 
                     var len = data.length;
@@ -57,7 +57,7 @@ $(document).ready(function () {
             dataType : "json",
             contentType: "application/json; charset=UTF-8",
             success : function(data) {
-
+                console.log("클릭");
                 var len = data.length;
 
                 $("#sido_name").empty();
@@ -91,7 +91,7 @@ $(document).ready(function () {
             // 서버로 보내는 타입 (파라미터 타입)을 말한다.
             // contentType: "application/json; charset=UTF-8",
             success : function(data) {
-
+                console.log("읍면동");
                 var len = data.length;
 
                 $("#dong_name").empty();
