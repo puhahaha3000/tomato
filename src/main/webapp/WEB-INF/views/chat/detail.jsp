@@ -4,7 +4,7 @@
 
 <html>
 <head>
-    <title>list</title>
+    <title>디테일</title>
 </head>
 <body>
 </body>
