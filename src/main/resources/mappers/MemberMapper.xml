@@ -50,9 +50,4 @@
         ]]>
     </select>
 
-    <select id="getMemberByEmailAndName" resultType="MemberVO">
-        <![CDATA[
-              SELECT ID, EMAIL FROM MEMBERS WHERE EMAIL = #{email} AND NAME = #{name}
-        ]]>
-    </select>
 </mapper>
