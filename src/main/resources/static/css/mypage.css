@@ -4,12 +4,12 @@
 }
 .mypgCon{
     width: 1200px;
-    height: 100%;
+    
     max-width: none !important;
 }
 #signInForm{
     width: 800px;
-    height: 430px;
+    
     border: 3px solid tomato;
     border-radius: 10px;
 }

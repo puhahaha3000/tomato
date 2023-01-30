@@ -31,24 +31,30 @@
                         <div class="row justify-content-center writeRow mt-4">
                             <div class="col text-lg-center">내가 쓴 글</div>
                             <div class="w-100"></div>
-                            <div class="col text-lg-center myWritedList">작성글 아직 미구현
+                            <div class="col-10 text-center myWritedList">작성글 아직 미구현
+                                작성글 아직 미구현
+                                작성글 아직 미구현
+                                작성글 아직 미구현
+                                작성글 아직 미구현작성글 아직 미구현작성글 아직 미구현작성글 아직 미구현작성글 아직 미구현작성글 아직 미구현작성글 아직 미구현작성글 아직 미구현작성글 아직
+                                미구현작성글 아직 미구현작성글 아직 미구현작성글 아직 미구현작성글 아직 미구현작성글 아직 미구현작성글 아직 미구현작성글 아직 미구현작성글 아직 미구현작성글
+                                아직 미구현작성글 아직 미구현작성글 아직 미구현작성글 아직 미구현작성글 아직 미구현
                             </div>
                         </div>
                         <div class="row justify-content-center flex-nowrap mt-4">
-                            <div class="col-6 col-sm-3 text-lg-center">찜 개수</div>
-                            <div class="col-6 col-sm-3 text-lg-center">????개</div>
+                            <div class="col-6 col-sm-3 text-center">찜 개수</div>
+                            <div class="col-6 col-sm-3 text-center">????개</div>
                         </div>
                         <div class="row justify-content-center flex-nowrap mt-4">
-                            <div class="col-6 col-sm-3 text-lg-center">참여중인 채팅</div>
-                            <div class="col-6 col-sm-3 text-lg-center">???개</div>
+                            <div class="col-6 col-sm-3 text-center">참여중인 채팅</div>
+                            <div class="col-6 col-sm-3 text-center">???개</div>
                         </div>
                         <div class="row justify-content-center flex-nowrap mt-4">
-                            <div class="col-6 col-sm-3 text-lg-center">내 동네</div>
-                            <div class="col-6 col-sm-3 text-lg-center">${addressVO.sidoName} ,${addressVO.sigunguName},
+                            <div class="col-6 col-sm-3 text-center">내 동네</div>
+                            <div class="col-6 col-sm-3 text-center">${addressVO.sidoName} ,${addressVO.sigunguName},
                                 ${addressVO.dongName}</div>
                         </div>
                         <div class="row align-content-center mt-4">
-                            <div class="col d-flex justify-content-center flex-nowrap">
+                            <div class="col d-flex justify-content-center flex-nowrap mb-3">
                                 <input id="modifyBtn" type="button" onclick="modifypage()" value="내정보수정">
                             </div>
                         </div>
