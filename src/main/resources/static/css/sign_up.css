@@ -96,6 +96,7 @@ input {
     color: darkgreen;
     text-decoration-color: darkgreen;
     background-color: white;
+    border-style: solid;
 }
 
 .joinButton:active {

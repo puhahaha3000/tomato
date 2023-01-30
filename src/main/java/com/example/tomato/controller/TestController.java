@@ -17,11 +17,11 @@ public class TestController {
         return "main/index";
     }
 	
-	@GetMapping("/modify")
+	@GetMapping("/mypage")
     public String search_id() {
-        log.info("member/modify()...");
+        log.info("member/mypage()...");
         
-        return "member/modify";
+        return "member/mypage";
     }
 
 }

@@ -4,7 +4,7 @@
 
 <html>
 <head>
-    <title>list</title>
+    <title>마이페이지</title>
 </head>
 <body>
 <header>
