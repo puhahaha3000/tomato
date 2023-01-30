@@ -23,5 +23,10 @@ public class TestController {
         
         return "member/mypage";
     }
+    @GetMapping("/modify")
+    public String modify(){
+        log.info("member/modify()");
+        return "member/modify";
+    }
 
 }
