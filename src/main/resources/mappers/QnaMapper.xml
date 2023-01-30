@@ -17,8 +17,7 @@
     </resultMap>
 
     <resultMap id="boardMap" type="BoardVO">
-        <id property="no" column="NO"/>
-        <result property="memberNo" column="MEMBER_NO"/>
+        <id property="no" column="BOARD_NO"/>
         <result property="title" column="TITLE"/>
         <result property="content" column="CONTENT"/>
         <result property="createDate" column="CREATE_DATE"/>
@@ -29,20 +28,20 @@
     </resultMap>
 
     <resultMap id="memberMap" type="MemberVO">
-        <id property="no" column="NO"/>
+        <id property="no" column="MEMBER_NO"/>
         <result property="id" column="ID"/>
     </resultMap>
 
     <select id="getList" parameterType="PagingVO" resultMap="QnaMap">
         <![CDATA[
-            SELECT *
-            FROM (SELECT ROWNUM AS RNUM, R.*
-                  FROM (SELECT *
-                      FROM QNAS Q, BOARD B, MEMBERS M
-                      WHERE Q.BOARD_NO = B.NO
+        SELECT *
+        FROM (SELECT ROWNUM AS RNUM, R.*
+              FROM (SELECT Q.NO, HIDDEN_FLAG, COMPLETE_FLAG, BOARD_NO, TITLE, CONTENT, CREATE_DATE, MODIFIED_DATE, HIT, B.DEL_FLAG, MEMBER_NO, ID
+                    FROM QNAS Q, BOARD B, MEMBERS M
+                    WHERE Q.BOARD_NO = B.NO
                       AND B.MEMBER_NO = M.NO
-                      ORDER BY Q.NO DESC) R)
-            WHERE RNUM BETWEEN #{pageBegin} AND #{pageEnd};
+                    ORDER BY Q.NO DESC) R)
+        WHERE RNUM BETWEEN 1 AND 10;
         ]]>
     </select>
 
