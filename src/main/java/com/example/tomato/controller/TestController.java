@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @Slf4j
 @Controller
@@ -18,7 +20,7 @@ public class TestController {
     }
 	
 	@GetMapping("/mypage")
-    public String search_id() {
+    public String mypage() {
         log.info("member/mypage()...");
         
         return "member/mypage";
@@ -28,5 +30,10 @@ public class TestController {
         log.info("member/modify()");
         return "member/modify";
     }
-
+    @GetMapping("/myarticle")
+    public String myarticle() {
+        log.info("member/myarticle()");
+        return "member/my_article";
+    }
+    
 }

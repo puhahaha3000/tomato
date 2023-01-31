@@ -25,7 +25,7 @@
 
                     <form id="signInForm" class="d-flex flex-column mt-5" action="join" method="post">
                         <div class="row justify-content-center flex-nowrap mt-4">
-                            <div class="col-6 col-sm-3 text-lg-center">아이디 : </div>
+                            <div class="col-6 col-sm-3 text-lg-center">아이디</div>
                             <div class="col-6 col-sm-3 text-lg-center">${memberVO.nickname}</div>
                         </div>
                         <div class="row justify-content-center writeRow mt-4">
