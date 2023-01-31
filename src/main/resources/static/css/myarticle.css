@@ -1,0 +1,38 @@
+* {
+  font-family: "Do Hyeon", sans-serif;
+  font-size: 20px;
+}
+.myarticleCon {
+  width: 1200px;
+  max-width: none !important;
+}
+#dropdonwBtn {
+  width: 200px;
+  color: tomato;
+  background-color: white;
+  border: 2.5px solid darkgreen;
+}
+#dropdown-menu {
+  border: 2.5px solid tomato;
+}
+#dropdown-menu a {
+  color: darkgreen;
+  text-align: center;
+}
+#boardListGroup {
+  border: 2px solid tomato;
+}
+
+#listGroupTitle {
+  color: tomato;
+}
+#boardListGroup a:not(#listGroupTitle) {
+  color: darkgreen;
+}
+
+#pageNext a {
+  color: darkgreen;
+}
+.pageChange {
+  color: tomato;
+}
