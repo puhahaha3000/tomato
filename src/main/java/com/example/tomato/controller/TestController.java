@@ -1,5 +1,7 @@
 package com.example.tomato.controller;
 
+import java.lang.annotation.Retention;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -35,5 +37,9 @@ public class TestController {
         log.info("member/myarticle()");
         return "member/my_article";
     }
-    
+    @GetMapping("/favorite")
+    public String favorite(){
+        log.info("member/favorite()");
+        return "member/favorite";
+    }
 }
