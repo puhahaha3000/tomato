@@ -4,6 +4,7 @@ import com.example.tomato.vo.BoardVO;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 
 @Mapper
 public interface BoardMapper {
@@ -12,4 +13,11 @@ public interface BoardMapper {
 
     @Delete("UPDATE BOARD SET DEL_FLAG = 'Y' WHERE NO = #{no}")
     int delete(int no);
+
+    @Select("SELECT * FROM BOARD WHERE NO = #{boardNo}")
+    BoardVO getBoard(int boardNo);
+
+    @Select("SELECT COUNT(*) FROM TRADE")
+    int getTotalCount();
+
 }

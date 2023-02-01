@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.sql.Timestamp;
+import java.sql.Date;
 import java.util.List;
 
 /*
@@ -27,8 +27,8 @@ public class BoardVO {
 	private int memberNo;
 	private String title;
 	private String content;
-	private Timestamp createDate;
-	private Timestamp modified_date;
+	private Date createDate;
+	private Date modifiedDate;
 	private int hit;
 	private char delFlag;
 

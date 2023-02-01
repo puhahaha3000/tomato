@@ -9,7 +9,7 @@
                 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
                     rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
                     crossorigin="anonymous">
-                <link rel="stylesheet" type="text/css" href="css/main_page.css">
+                <link rel="stylesheet" type="text/css" href="/tomato/css/main_page.css">
                 <link rel="preconnect" href="https://fonts.googleapis.com">
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
                 <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
@@ -20,7 +20,7 @@
                 <div class="container-fluid header" style="width: 1200px; max-width: none !important;">
                     <div class="row headerrow">
                         <div class="col-2 tomatoCol">
-                            <a href="/tomato/"><img src="../img/tomatoLogo.jpg" onerror="this.src='img/tomatoLogo.jpg'" class="img-rounded tomatologo" alt="토마토"
+                            <a href="/tomato/"><img src="/tomato/img/tomatoLogo.jpg" class="img-rounded tomatologo" alt="토마토"
                                     width="80px" height="80px"></a>
                         </div>
                         <div class="col-8 searchCol" style="width: 785px; padding-top: 20px;">
@@ -58,14 +58,14 @@
     
                         </div>
                         <div class="col-1 writeLog">
-                            <a href="#"><img src="../img/writeIcon.png" onerror="this.src='img/writeIcon.png'"class="img-fluid" alt="쓰기"></a>
+                            <a href="#"><img src="/tomato/img/writeIcon.png" class="img-fluid" alt="쓰기"></a>
                         </div>
                         <div class="col-1 chatLogo">
-                            <a href="#"><img src="../img/chatIcon.png" onerror="this.src='img/chatIcon.png'"class="img-fluid" alt="채팅"></a>
+                            <a href="#"><img src="/tomato/img/chatIcon.png" class="img-fluid" alt="채팅"></a>
     
                         </div>
                         <div class="col-1 heartLogo">
-                            <a href="#"><img src="../img/heartIcon.png" onerror="this.src='img/heartIcon.png'"class="img-fluid" alt="찜"></a>
+                            <a href="#"><img src="/tomato/img/heartIcon.png" class="img-fluid" alt="찜"></a>
                         </div>
     
                     </div>
