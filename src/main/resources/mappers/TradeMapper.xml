@@ -29,4 +29,71 @@
         ]]>
     </insert>
 
+    <resultMap id="TradeMap" type="TradeVO">
+        <id property="no" column="TRADE_NO"/>
+        <result property="itemCategory" column="ITEM_CATEGORY"/>
+        <result property="addressNo" column="ADDRESS_NO"/>
+        <result property="statusNo" column="STATUS_NO"/>
+        <result property="price" column="PRICE"/>
+        <collection property="boardVOList" resultMap="boardMap"/>
+        <collection property="itemCategoryVOList" resultMap="itemCategoryMap"/>
+        <collection property="addressVOList" resultMap="addressMap"/>
+        <collection property="imageVOList" resultMap="imageMap"/>
+    </resultMap>
+
+    <resultMap id="boardMap" type="BoardVO">
+        <id property="no" column="BOARD_NO"/>
+        <result property="memberNo" column="MEMBER_NO"/>
+        <result property="title" column="TITLE"/>
+        <result property="content" column="CONTENT"/>
+        <result property="createDate" column="CREATE_DATE"/>
+        <result property="modifiedDate" column="MODIFIED_DATE"/>
+        <result property="hit" column="HIT"/>
+        <result property="delFlag" column="DEL_FLAG"/>
+        <collection property="memberVOList" resultMap="memberMap"/>
+    </resultMap>
+
+    <resultMap id="memberMap" type="MemberVO">
+        <id property="no" column="ITEM_CATEGORY"/>
+        <result property="nickname" column="NICKNAME"/>
+    </resultMap>
+
+    <resultMap id="itemCategoryMap" type="ItemCategoryVO">
+        <id property="no" column="ITEM_CATEGORY"/>
+        <result property="name" column="ITEM_CATEGORY_NAME"/>
+    </resultMap>
+
+    <resultMap id="addressMap" type="AddressVO">
+        <id property="no" column="ADDRESS_NO"/>
+        <result property="sidoName" column="SIDO_NAME"/>
+        <result property="sigunguName" column="SIGUNGU_NAME"/>
+        <result property="dongName" column="DONG_NAME"/>
+    </resultMap>
+
+    <resultMap id="imageMap" type="TestImageVO">
+        <result property="filename" column="FILENAME"/>
+        <result property="filepath" column="FILEPATH"/>
+    </resultMap>
+
+    <select id="getList" parameterType="PagingVO" resultMap="TradeMap">
+        <![CDATA[
+            SELECT *
+            FROM (SELECT ROWNUM AS RNUM, R.*
+                  FROM (SELECT T.NO TRADE_NO, ITEM_CATEGORY, T.ADDRESS_NO, T.BUYER_NO, STATUS_NO, PRICE,
+                               B.NO BOARD_NO, B.MEMBER_NO MEMBER_NO, B.TITLE, B.CONTENT, B.CREATE_DATE, B.MODIFIED_DATE, HIT, B.DEL_FLAG,
+                               M.NO, M.NICKNAME,
+                               I.NAME ITEM_CATEGORY_NAME,
+                               A.SIDO_NAME, A.SIGUNGU_NAME, A.DONG_NAME,
+                               IMG.FILENAME, IMG.FILEPATH
+                        FROM TRADE T, BOARD B, MEMBERS M, ITEM_CATEGORY I, ADDRESS A, IMAGE IMG
+                        WHERE T.BOARD_NO = B.NO
+                        AND B.MEMBER_NO = M.NO
+                        AND T.ITEM_CATEGORY = I.NO
+                        AND T.ADDRESS_NO = A.NO
+                        AND T.NO = IMG.TRADE_NO
+                        ORDER BY T.NO DESC) R)
+            WHERE RNUM BETWEEN 1 AND 10
+        ]]>
+    </select>
+
 </mapper>

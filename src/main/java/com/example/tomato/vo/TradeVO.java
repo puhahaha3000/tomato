@@ -21,6 +21,10 @@ PRICE         NOT NULL NUMBER
 @AllArgsConstructor
 @Data
 public class TradeVO {
+
+	/**
+	 * Trade 테이블 기본 속성
+	 */
 	private int no;
 	private int boardNo;
 	private int itemCategory;
@@ -29,6 +33,9 @@ public class TradeVO {
 	private int statusNo;
 	private int price;
 
+	private List<AddressVO> addressVOList;
+	private List<ItemCategoryVO> itemCategoryVOList;
 	private List<BoardVO> boardVOList;
-	// private List<TestImageVO> imageVOList;   // Test imageList
+	private List<MemberVO> memberVOList;
+	private List<TestImageVO> imageVOList;   // Test imageList
 }
