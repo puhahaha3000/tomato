@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -86,19 +85,7 @@ public class TradeServiceImpl implements TradeService {
 
         log.info("read() ..");
 
-        TradeVO tradeVO = new TradeVO();
-        List<BoardVO> boardVO = new ArrayList<>();
-        List<TestImageVO> imageVO = new ArrayList<>();
-
-        // tradeVO = tradeMapper.getTradeBoard(no);
-
-        boardVO.add(boardMapper.getBoard(tradeVO.getBoardNo()));
-        tradeVO.setBoardVOList(boardVO);
-
-        imageVO.add(tradeMapper.getImageList(tradeVO.getNo()));
-        tradeVO.setImageVOList(imageVO);
-
-        return null;
+        return tradeMapper.getBoard(no);
     }
 
     @Override
@@ -117,11 +104,4 @@ public class TradeServiceImpl implements TradeService {
         return tradeMapper.getList(page);
     }
 
-    @Override
-    public ItemCategoryVO getItemList(int itemCategoryNo) {
-
-        log.info("getItemList() ..");
-
-        return tradeMapper.getItemName(itemCategoryNo);
-    }
 }

@@ -85,4 +85,15 @@ public class TradeController {
 
         return "template/template";
     }
+
+    @GetMapping("{no}")
+    public String detail(@PathVariable String no, Model model) {
+
+        log.info("detail() .. tradePageNo : " + no);
+
+        model.addAttribute("tradeBoard", tradeService.read(Integer.parseInt(no)));
+        model.addAttribute("pageName", "../trade/detail.jsp");
+
+        return "template/template";
+    }
 }
