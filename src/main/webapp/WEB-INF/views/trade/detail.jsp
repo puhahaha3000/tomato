@@ -5,8 +5,7 @@
 
 <table width="1000" cellpadding="0" cellspacing="0" border="1">
     <form id="tradeForm" action="write" method="post" enctype="multipart/form-data">
-<%--        <c:forEach var="trade" items="${tradeBoard}" varStatus="memberVOList, boardVOList, itemCategoryVOList, addressVOList, imageVOList">--%>
-                <input type="text" id="memberNo" value="${tradeBoard.memberVOList[0].no}">
+        <input id="memberNo" type="hidden" name="memberNo" value="${tradeBoard.boardVOList[0].memberNo}">
         <tr>
             <td>현재상태</td>
             <td>
@@ -58,7 +57,8 @@
         </tr>
         <tr>
             <td>글 내용</td>
-            <td><textarea id="content" name="input_content" rows="5" cols="50">${tradeBoard.boardVOList[0].content}</textarea></td>
+            <td><textarea id="content" name="input_content" rows="5"
+                          cols="50">${tradeBoard.boardVOList[0].content}</textarea></td>
         </tr>
         <tr>
             <td>사진 추가</td>
@@ -66,14 +66,14 @@
                 <input id="files" name="fileupload" type="file" multiple="multiple"/>
             </td>
         </tr>
-            <tr>
-                <td>
-                    <a href="#">체팅하기</a>
-                </td>
-                <td>
-                    <a href="#">찜하기</a>
-                </td>
-            </tr>
+        <tr>
+            <td>
+                <a href="#">체팅하기</a>
+            </td>
+            <td>
+                <a href="#">찜하기</a>
+            </td>
+        </tr>
         <tr>
             <td>
                 <input type="submit" value="수정하기">
@@ -82,6 +82,5 @@
                 <a href="#">삭제하기</a>
             </td>
         </tr>
-       <%-- </c:forEach>--%>
     </form>
 </table>
