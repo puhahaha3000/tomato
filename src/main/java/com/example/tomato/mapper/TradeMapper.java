@@ -20,5 +20,6 @@ public interface TradeMapper {
 
     List<TradeVO> getList(PagingVO page);
 
+    int updateTrade(TradeVO tradeVO);
 }
 

@@ -1,10 +1,7 @@
 package com.example.tomato.mapper;
 
 import com.example.tomato.vo.BoardVO;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 @Mapper
 public interface BoardMapper {
@@ -20,4 +17,6 @@ public interface BoardMapper {
     @Select("SELECT COUNT(*) FROM TRADE")
     int getTotalCount();
 
+    @Update("UPDATE BOARD SET TITLE =#{title}, CONTENT = #{content}, MODIFIED_DATE = SYSDATE WHERE NO = #{no}")
+    int updateBoard(BoardVO boardVO);
 }

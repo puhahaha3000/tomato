@@ -115,4 +115,12 @@
         ]]>
     </select>
 
+    <update id="updateTrade">
+        <![CDATA[
+            UPDATE TRADE SET ITEM_CATEGORY = #{itemCategory}, ADDRESS_NO = #{addressNo},
+                             STATUS_NO = #{statusNo}, PRICE = #{price}
+            WHERE BOARD_NO = #{no}
+        ]]>
+    </update>
+
 </mapper>

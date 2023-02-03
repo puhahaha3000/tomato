@@ -104,4 +104,15 @@ public class TradeServiceImpl implements TradeService {
         return tradeMapper.getList(page);
     }
 
+    @Override
+    public boolean modify(TradeVO tradeVO) {
+
+        log.info("Trade : update() ..");
+
+        int boardResult =  boardMapper.updateBoard(tradeVO.getBoardVOList().get(0));
+        int tradeResult = tradeMapper.updateTrade(tradeVO);
+
+        return boardResult == 1 & tradeResult == 1;
+    }
+
 }

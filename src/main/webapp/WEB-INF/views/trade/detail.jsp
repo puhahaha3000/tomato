@@ -3,9 +3,14 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script src="../js/trade_write.js"></script>
+
 <table width="1000" cellpadding="0" cellspacing="0" border="1">
     <form id="tradeForm" action="write" method="post" enctype="multipart/form-data">
         <input id="memberNo" type="hidden" name="memberNo" value="${tradeBoard.boardVOList[0].memberNo}">
+        <input id="boardNo" type="hidden" name="boardNo" value="${tradeBoard.boardVOList[0].no}">
         <tr>
             <td>현재상태</td>
             <td>

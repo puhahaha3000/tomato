@@ -17,4 +17,6 @@ public interface TradeService {
     int getTotal();
 
     List<TradeVO> getList(PagingVO page);
+
+    boolean modify(TradeVO tradeVO);
 }
