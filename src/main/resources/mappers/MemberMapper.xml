@@ -55,4 +55,5 @@
               SELECT ID, EMAIL FROM MEMBERS WHERE EMAIL = #{email} AND NAME = #{name}
         ]]>
     </select>
+    
 </mapper>

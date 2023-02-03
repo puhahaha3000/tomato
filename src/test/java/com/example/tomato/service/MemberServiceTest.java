@@ -1,12 +1,13 @@
 package com.example.tomato.service;
 
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.Random;
 
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.example.tomato.vo.AuthInfoVO;
 import com.example.tomato.vo.MemberVO;
 
 @SpringBootTest
@@ -51,7 +52,7 @@ class MemberServiceTest {
 		//success
 	}
 	
-	
+	@Disabled
 	@Test
 	void testSendMail() {
 		String email = "shlee807@naver.com";
@@ -61,8 +62,34 @@ class MemberServiceTest {
 		String title = "회원님의 ID입니다";
 		String content = "ID: " + member.getId();
 		
-		int sendResult = memberService.sendMail(email, title, content);
+		boolean sendResult = memberService.sendMail(email, title, content);
 		System.out.println(sendResult+content);
 	}
 	
+	@Disabled
+	@Test
+	void testFindNoByEmail() {
+		String email = "shlee807@naver.com";
+		int result = memberService.findNoByEmail(email);
+		System.out.println("회원번호: "+result);
+	}
+	
+	@Disabled
+	@Test
+	void testSetAuthInfo() {
+		AuthInfoVO authInfoVO = new AuthInfoVO();
+		authInfoVO.setMemberNo(44);
+		
+		Random randNum = new Random();
+		int num = randNum.nextInt(999999); //6자리 난수
+		String no = Integer.toString(num);
+		
+		authInfoVO.setNo(no);
+		memberService.setAuthInfo(authInfoVO);
+	}
+	
+	@Test
+	void testInitPassword() {
+		System.out.println(memberService.initPassword(44, "john2"));
+	}
 }

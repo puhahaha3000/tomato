@@ -1,5 +1,7 @@
 package com.example.tomato.controller;
 
+import java.util.Random;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -10,8 +12,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.tomato.service.MemberService;
+import com.example.tomato.vo.AuthInfoVO;
 import com.example.tomato.vo.MemberVO;
 
 import lombok.extern.slf4j.Slf4j;
@@ -47,9 +51,9 @@ public class AuthController {
 	}
 
 	/* 메인페이지 아이디찾기_view */
-	@GetMapping("/search_id_view")
+	@GetMapping("/search_id")
 	public String search_id_view(Model model) {
-		log.info("search_id_view()..");
+		log.info("search_id()..");
 		String pageName = "../auth/search_id.jsp";
 		model.addAttribute("pageName", pageName);
 		return "template/template";
@@ -73,9 +77,9 @@ public class AuthController {
 
 			String title = name + "회원님의 ID입니다";
 			String content = "ID: " + member.getId(); // id찾기에서 email의 content는 id이다
-			int sendResult = memberService.sendMail(email, title, content);
+			boolean sendResult = memberService.sendMail(email, title, content);
 			// 오류검증구문
-			if (sendResult == 0) {
+			if (sendResult == true) {
 				log.info("정상발송");
 				pageName = "../auth/search_id_success.jsp";
 			}
@@ -90,7 +94,7 @@ public class AuthController {
 		return "template/template";
 	}
 
-	/* 비밀번호변경페이지_view */
+	/* 비밀번호초기화페이지_view */
 	@GetMapping("/init_password_auth_view")
 	public String init_password_auth_view(Model model) {
 		log.info("init_password_auth_view()..");
@@ -99,25 +103,121 @@ public class AuthController {
 		return "template/template";
 	}
 
-	/* 비밀번호변경페이지의 이메일인증_action */
-	@PostMapping("/email_auth_view")
-	public String email_auth_view(Model model, String email) {
-		log.info("email_auth_view()..");
+	/* 이메일인증_action */
+	@PostMapping("/email_auth_action")
+	public String email_auth_action(Model model, @RequestParam String email, AuthInfoVO authInfoVO, HttpSession session) {
+		log.info("email_auth_action()..");
 
-		String pageName = "../auth/email_auth_view.jsp";
-
-		String title = email + "주소로 인증번호를 발송하였습니다";
-		int randnum = (int) (Math.random() * 899999 + 100000); // 6자리 난수생성
-		String content = Integer.toString(randnum); // id찾기에서 email의 content는 id이다
-		int sendResult = memberService.sendMail(email, title, content);
-		// 오류검증구문
-		if (sendResult == 0) {
-			log.info("정상발송");
-			pageName = "../auth/email_auth_confirm.jsp";
+		String pageName = "";
+		
+		
+		int findNoByEmailResult = memberService.findNoByEmail(email);
+		int memberNo = 0;
+		if (findNoByEmailResult != -1) {
+			memberNo = findNoByEmailResult;
+			
+			String title = email + " 주소로 발송한 인증번호입니다";
+			Random randNum = new Random();
+			int num = randNum.nextInt(999999); //6자리 난수
+			String no = Integer.toString(num);
+			while(no.length() < 6) {
+				no = "0" + no;
+			}
+			String content = "인증코드: " + no; // email의 내용에 인증용 난수를 첨부
+			boolean sendResult = memberService.sendMail(email, title, content);
+			
+			// 오류검증구문
+			if (sendResult == true) {
+				authInfoVO.setMemberNo(memberNo);
+				authInfoVO.setNo(no);
+				
+				boolean setAuthInfoResult = memberService.setAuthInfo(authInfoVO);	//일단 db에 저장은 했는데, 검증과정에서는 session에서 바로 진행 
+				log.info(setAuthInfoResult+"");
+				
+				session.setAttribute("authInfoVO", authInfoVO);	//우선 authinfo는 session으로 넘김. 추후 변경될 가능성 있음
+				session.setMaxInactiveInterval(180);
+				model.addAttribute("authInfoVO", authInfoVO);
+				pageName = "../auth/email_auth_confirm.jsp";
+			}
+			else {
+				log.info("발송실패");
+				pageName = "../auth/email_auth_fail.jsp";
+			}
 		}
 		else {
-			log.info("발송실패");
+				log.info("이메일 입력 오류에 의한 발송정보확인불가");
+				pageName = "../auth/email_auth_fail.jsp";
+			}
+
+		model.addAttribute("pageName", pageName);
+		return "template/template";
+	}
+	
+	/* 인증코드 검증 */
+	@PostMapping("/email_auth_confirm_action")
+	public String email_auth_confirm_action(Model model, AuthInfoVO authInfoVO, HttpSession session , @RequestParam String no) {
+		log.info("email_auth_confirm_action()..");
+		String pageName = "";
+		try {
+			authInfoVO = (AuthInfoVO) session.getAttribute("authInfoVO");
+		} catch (Exception e) {
+			log.info("인증코드가 만료되었습니다");
+		}
+		if (authInfoVO.getNo().equals(no)) {
+			pageName = "../auth/email_auth_success.jsp"; //완료시 jsp에 model객체를 통하여 적당한 성공완료보고값을 전달해야할 수 있다.
+			session.invalidate();
+		}
+		else
 			pageName = "../auth/email_auth_fail.jsp";
+		
+		model.addAttribute("pageName", pageName);
+		return "template/template";
+	}
+	
+	/* 패스워드변경 진입을 위한 회원검증_action */
+	@PostMapping("/init_password_auth_action")
+	public String init_password_auth_action(Model model, @RequestParam String email, @RequestParam String id) {
+		log.info("init_password_auth_action()..");
+
+		String pageName = "";
+		
+		
+		int findNoByEmailResult = memberService.findNoByEmail(email);
+		int memberNoById = 0;
+		try {
+			int memberNoByIdResult = memberService.getNo(id);
+			memberNoById = memberNoByIdResult;
+		} catch (Exception e) {
+			log.info("id와email이 일치하지 않습니다");
+			pageName = "../auth/id_fail.jsp";
+		}
+		if (memberNoById == findNoByEmailResult) {
+			pageName = "../auth/init_pwd.jsp";
+		}
+		else {
+			pageName = "../auth/id_fail.jsp";
+		}
+
+		model.addAttribute("pageName", pageName);
+		return "template/template";
+	}
+	
+	@PostMapping("/init_password_action")
+	public String init_password_action(Model model, @RequestParam String id, @RequestParam String password) {
+		log.info("init_password_action()..");
+
+		String pageName = "";
+		
+		
+		int memberNo = memberService.getNo(id);
+		boolean initResult = memberService.initPassword(memberNo, password);
+		if (initResult == true) {
+			log.info(id+" 회원님의 비밀번호가 정상적으로 변경되었습니다");
+			pageName = "../auth/init_password_success.jsp";
+		}
+		else {
+			log.info(id+" 회원님의 비밀번호를 변경하는 데에 실패하였습니다");
+			pageName = "../auth/init_password_fail.jsp";
 		}
 
 		model.addAttribute("pageName", pageName);

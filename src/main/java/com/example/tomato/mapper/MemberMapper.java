@@ -1,9 +1,11 @@
 package com.example.tomato.mapper;
 
+import com.example.tomato.vo.AuthInfoVO;
 import com.example.tomato.vo.MemberVO;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 @Mapper
 public interface MemberMapper{
@@ -22,5 +24,14 @@ public interface MemberMapper{
     int getNo(String id);
 
     MemberVO getMemberByEmailAndName(String email, String name);    //email과 이름을 통하여 member id조회
+    
+    @Select("SELECT NO FROM MEMBERS WHERE EMAIL = #{email}")
+	int getMemberNoByEmail(String email);	//email을 통하여 member no조회
+
+    @Insert("INSERT INTO AUTH_INFO(MEMBER_NO, NO) VALUES(#{memberNo}, #{no})")
+	void insertAuthInfo(AuthInfoVO authInfoVO);
+
+    @Update("UPDATE MEMBERS SET PASSWORD = #{encodedPassword} WHERE NO = #{memberNo}")
+	void updatePassword(int memberNo, String encodedPassword);
 
 }

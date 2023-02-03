@@ -1,6 +1,7 @@
 package com.example.tomato.service;
 
 import com.example.tomato.mapper.MemberMapper;
+import com.example.tomato.vo.AuthInfoVO;
 import com.example.tomato.vo.MemberVO;
 import lombok.extern.slf4j.Slf4j;
 
@@ -86,25 +87,60 @@ public class MemberServiceImpl implements MemberService {
     // email과 이름을 통하여 member id조회
     @Override
     public MemberVO findId(String email, String name) {
-        log.info("searchId() ..");
+        log.info("findId() ..");
         MemberVO memberVO = memberMapper.getMemberByEmailAndName(email, name);
         return memberVO;
     }
 
     @Override
-    public int sendMail(String email, String title, String content) {
-        try {
+    public boolean sendMail(String email, String title, String content) {
+    	log.info("sendMail() ..");
+    	try {
             MimeMessage mimeMessage = javaMailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true, "utf-8");
             helper.setTo(email);    //수신자 email 주소
             helper.setSubject(title);    //발신 제목
             helper.setText(content);
             javaMailSender.send(mimeMessage);
-            return 0;
+            return true;
         } catch (MessagingException e) {
             e.printStackTrace();
-            return 1;
+            return false;
         }
     }
+
+	@Override
+	public int findNoByEmail(String email) {
+		log.info("findNoByEmail() ..");
+		try {
+			int memberNo = memberMapper.getMemberNoByEmail(email);
+			return memberNo;
+		} catch (Exception e) {
+			return -1;
+		}
+	}
+
+	@Override
+	public boolean setAuthInfo(AuthInfoVO authInfoVO) {
+		log.info("setAuthInfo() ..");
+		try {
+			memberMapper.insertAuthInfo(authInfoVO);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	@Override
+	public boolean initPassword(int memberNo, String password) {
+		log.info("initPassword() ..");
+		String encodedPassword = new BCryptPasswordEncoder().encode(password); //비밀번호 암호화
+		try {
+			memberMapper.updatePassword(memberNo, encodedPassword);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
 
 }
