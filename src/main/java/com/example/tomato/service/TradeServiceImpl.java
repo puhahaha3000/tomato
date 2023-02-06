@@ -110,9 +110,26 @@ public class TradeServiceImpl implements TradeService {
         log.info("Trade : update() ..");
 
         int boardResult =  boardMapper.updateBoard(tradeVO.getBoardVOList().get(0));
+        log.info("good");
         int tradeResult = tradeMapper.updateTrade(tradeVO);
 
         return boardResult == 1 & tradeResult == 1;
+    }
+
+    @Override
+    public List<TradeStatusVO> statusList() {
+
+        log.info("get statusList() ..");
+
+        return tradeMapper.getStatusList();
+    }
+
+    @Override
+    public boolean remove(int boardNo) {
+
+        log.info("Trade : delete() ..");
+
+        return tradeMapper.delete(boardNo);
     }
 
 }

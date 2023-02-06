@@ -5,12 +5,13 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
-<script src="../js/trade_write.js"></script>
+<script src="../js/trade_update.js"></script>
 
 <table width="1000" cellpadding="0" cellspacing="0" border="1">
     <form id="tradeForm" action="write" method="post" enctype="multipart/form-data">
         <input id="memberNo" type="hidden" name="memberNo" value="${tradeBoard.boardVOList[0].memberNo}">
         <input id="boardNo" type="hidden" name="boardNo" value="${tradeBoard.boardVOList[0].no}">
+        <input id="tradeNo" type="hidden" name="tradeNo" value="${tradeBoard.no}">
         <tr>
             <td>현재상태</td>
             <td>
@@ -40,7 +41,14 @@
         <tr>
             <td>작성자</td>
             <td>
-                ${tradeBoard.memberVOList[0].nickname}
+                ${tradeBoard.boardVOList[0].memberVOList[0].nickname}
+                <a href="#">신고하기</a>
+            </td>
+        </tr>
+        <tr>
+            <td>작성일</td>
+            <td>
+                ${tradeBoard.boardVOList[0].createDate}
             </td>
         </tr>
         <tr>
@@ -84,7 +92,7 @@
                 <input type="submit" value="수정하기">
             </td>
             <td>
-                <a href="#">삭제하기</a>
+                <button id="delete_button">삭제하기</button>
             </td>
         </tr>
     </form>

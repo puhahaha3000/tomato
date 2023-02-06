@@ -1,10 +1,9 @@
 package com.example.tomato.mapper;
 
-import com.example.tomato.vo.ItemCategoryVO;
-import com.example.tomato.vo.PagingVO;
-import com.example.tomato.vo.TestImageVO;
-import com.example.tomato.vo.TradeVO;
+import com.example.tomato.vo.*;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -21,5 +20,11 @@ public interface TradeMapper {
     List<TradeVO> getList(PagingVO page);
 
     int updateTrade(TradeVO tradeVO);
+
+    @Select("SELECT * FROM TRADE_STATUS")
+    List<TradeStatusVO> getStatusList();
+
+    @Update("UPDATE BOARD SET DEL_FLAG = 'Y' WHERE NO = #{boardNo}")
+    boolean delete(int boardNo);
 }
 

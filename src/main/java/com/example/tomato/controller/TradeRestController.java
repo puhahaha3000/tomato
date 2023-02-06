@@ -2,6 +2,7 @@ package com.example.tomato.controller;
 
 import com.example.tomato.service.TradeService;
 import com.example.tomato.vo.ItemCategoryVO;
+import com.example.tomato.vo.TradeStatusVO;
 import com.example.tomato.vo.TradeVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -32,6 +33,14 @@ public class TradeRestController {
         return tradeService.itemList();
     }
 
+    @GetMapping("trade_status")
+    public List<TradeStatusVO> tradeStatusList() {
+
+        log.info("tradeStatusList() ..");
+
+        return tradeService.statusList();
+    }
+
     @PostMapping("/write")
     public ResponseEntity<String> writeTrade(@RequestPart("tradeVO") TradeVO tradeVO,
                                              @RequestPart("file") @Nullable MultipartFile file) throws Exception {
@@ -47,7 +56,7 @@ public class TradeRestController {
         try {
             boolean result = tradeService.writeTrade(tradeVO, file);
 
-            if(result == true) {
+            if(result) {
                 entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
             }
             else {
@@ -74,13 +83,13 @@ public class TradeRestController {
 
         ResponseEntity<String> entity = null;
 
-        log.info(tradeVO.toString());
+        // log.info(tradeVO.toString());
         // log.info(file.getOriginalFilename());
 
         try {
             boolean result = tradeService.modify(tradeVO);
 
-            if(result == true) {
+            if(result) {
                 entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
             }
             else {
@@ -99,5 +108,39 @@ public class TradeRestController {
         return entity;
     }
 
+
+
+
+    @DeleteMapping("delete")
+    public ResponseEntity<String> delete(@RequestParam("boardNo") String boardNo) {
+
+        log.info("Trade : delete() ..");
+
+        ResponseEntity<String> entity = null;
+
+        log.info(boardNo);
+
+
+        try {
+            boolean result = tradeService.remove(Integer.parseInt(boardNo));
+
+            if(result) {
+                entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
+            }
+            else {
+                Exception e = new Exception();
+                e.printStackTrace();
+
+                entity = new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
+            }
+
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            entity = new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+
+        return entity;
+    }
 
 }

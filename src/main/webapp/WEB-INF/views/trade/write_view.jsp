@@ -21,7 +21,7 @@
             <td><select id="status" name="input_status">
                 <option value="1">판매중</option>
                 <option value="2">예약중</option>
-                <option value="3">판매완료</option>
+                <option value="3">거래완료</option>
                 <option value="4">삽니다</option>
             </select></td>
         </tr>

@@ -14,7 +14,7 @@
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
                 <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-                <script src="../js/modify.js"></script>
+                <script src="../js/user_modify.js"></script>
             </head>
 
             <body>

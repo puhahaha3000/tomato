@@ -22,8 +22,6 @@ public class AddressServiceImpl implements AddressService {
 
         List<AddressVO> sidoNames = addressMapper.getSidoNameList();
 
-        log.info("DB String List : " + sidoNames.toString());
-
         return sidoNames;
     }
 
@@ -34,8 +32,6 @@ public class AddressServiceImpl implements AddressService {
 
         List<AddressVO> sigungusNames = addressMapper.getSigunguNameList(sidoName);
 
-        log.info("DB String List : " + sigungusNames.toString());
-
         return sigungusNames;
     }
 
@@ -45,8 +41,6 @@ public class AddressServiceImpl implements AddressService {
         log.info("get dongNameList() ..");
 
         List<AddressVO> dongNames = addressMapper.getDongNameList(sidoName, sigunguName);
-
-        log.info("DB Data List : " + dongNames.toString());
 
         return dongNames;
     }
@@ -70,8 +64,6 @@ public class AddressServiceImpl implements AddressService {
         log.info("get sejong() ..");
 
         List<AddressVO> dongNames = addressMapper.getSejong(sidoName);
-
-        log.info("DB String List : " + dongNames.toString());
 
         return dongNames;
     }
