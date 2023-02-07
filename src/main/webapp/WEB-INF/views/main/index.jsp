@@ -50,7 +50,7 @@
                         <div class="btn-group BoardMenu">
                             <a href="#" class="reportBtn">공지사항</a>&nbsp;&nbsp;
                             <a href="#" class="qnaBtn">QnA</a> &nbsp;&nbsp;
-                            <a href="#" class="tradeBtn">거래게시판</a>
+                            <a href="/tomato/trade/list/1" class="tradeBtn">거래게시판</a>
                         </div>
                     </div>
 
@@ -132,7 +132,7 @@
                     <div class="row">
                         <table class="table table-hover buyTable">
 
-                            <thead class="table-light buyTableHead" style="color: tomato;"">
+                            <thead class="table-light buyTableHead" style="color: tomato">
                                 <tr>
                                     
                                     <th scope=" col">No</th>

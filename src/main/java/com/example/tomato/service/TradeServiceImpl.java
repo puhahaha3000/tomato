@@ -110,7 +110,6 @@ public class TradeServiceImpl implements TradeService {
         log.info("Trade : update() ..");
 
         int boardResult =  boardMapper.updateBoard(tradeVO.getBoardVOList().get(0));
-        log.info("good");
         int tradeResult = tradeMapper.updateTrade(tradeVO);
 
         return boardResult == 1 & tradeResult == 1;
@@ -129,7 +128,9 @@ public class TradeServiceImpl implements TradeService {
 
         log.info("Trade : delete() ..");
 
-        return tradeMapper.delete(boardNo);
+        int tradeResult = tradeMapper.delete(boardNo);
+
+        return tradeResult == 1;
     }
 
 }

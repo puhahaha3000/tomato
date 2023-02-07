@@ -5,11 +5,10 @@ $(document).ready(function () {
         let boardNo = $("#boardNo").val();
 
         $.ajax({
-            async: true,
-            type: 'DELETE',
+            cache: false,
+            type: "DELETE",
             data: boardNo,
-            url: "/tomato/trade/delete",
-            dataType: "json",
+            url: "/tomato/trade/remove",
             contentType: "application/json; charset=UTF-8",
             success: function (result) {
                 console.log(result);

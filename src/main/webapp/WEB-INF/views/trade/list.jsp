@@ -9,7 +9,9 @@
             <td rowspan="2"><img src="/tomato${image.filepath}" width="150" height="150"></td>
         </c:forEach>
         <c:forEach var="board" items="${trade.boardVOList}">
-            <td>${board.title}</td>
+            <td>
+                <a href="/tomato/trade/${board.no}">${board.title}</a>
+            </td>
         </c:forEach>
     </tr>
     <tr>

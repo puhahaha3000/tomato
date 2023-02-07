@@ -111,18 +111,16 @@ public class TradeRestController {
 
 
 
-    @DeleteMapping("delete")
-    public ResponseEntity<String> delete(@RequestParam("boardNo") String boardNo) {
+    @DeleteMapping("/remove")
+    public ResponseEntity<String> remove(@RequestBody String boardNo) {
 
-        log.info("Trade : delete() ..");
+        log.info("Trade : remove() ..");
 
         ResponseEntity<String> entity = null;
 
-        log.info(boardNo);
-
-
         try {
             boolean result = tradeService.remove(Integer.parseInt(boardNo));
+            log.info("test" + result );
 
             if(result) {
                 entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);

@@ -25,6 +25,6 @@ public interface TradeMapper {
     List<TradeStatusVO> getStatusList();
 
     @Update("UPDATE BOARD SET DEL_FLAG = 'Y' WHERE NO = #{boardNo}")
-    boolean delete(int boardNo);
+    int delete(int boardNo);
 }
 

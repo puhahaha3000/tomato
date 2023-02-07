@@ -5,7 +5,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
-<script src="../js/trade_update.js"></script>
+<script src="../js/trade_detail.js"></script>
 
 <table width="1000" cellpadding="0" cellspacing="0" border="1">
     <form id="tradeForm" action="write" method="post" enctype="multipart/form-data">
@@ -84,15 +84,16 @@
                 <a href="#">체팅하기</a>
             </td>
             <td>
-                <a href="#">찜하기</a>
+                <button id="favorite_add_button">관심목록 추가</button>
             </td>
         </tr>
         <tr>
             <td>
                 <input type="submit" value="수정하기">
             </td>
+
             <td>
-                <button id="delete_button">삭제하기</button>
+                <button id="delete_button" type="button">삭제하기</button>
             </td>
         </tr>
     </form>
