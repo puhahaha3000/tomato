@@ -5,6 +5,7 @@ import com.example.tomato.service.MemberService;
 import com.example.tomato.service.TradeService;
 import com.example.tomato.vo.AddressVO;
 import com.example.tomato.vo.MemberVO;
+import com.example.tomato.vo.PagingVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,6 +24,7 @@ public class MemberController {
     private final AddressService addressService;
     private final MemberService memberService;
     private final TradeService tradeService;
+    private final PagingVO pagingVO = new PagingVO();
 
     public MemberController(AddressService addressService, MemberService memberService, TradeService tradeService) {
         this.addressService = addressService;
@@ -82,6 +84,21 @@ public class MemberController {
         model.addAttribute("userAddress", userAddress);
 
         return "member/modify";
+    }
+
+    @GetMapping("/my_favorite")
+    public String myFavorite(Model model) {
+
+        int userNo = 1;   // test data
+
+        log.info("myFavorite()...");
+
+        String pageName = "../member/favorite.jsp";
+
+        model.addAttribute("myFavorite", memberService.myFavorite(userNo, pagingVO));
+        model.addAttribute("pageName", pageName);
+
+        return "template/template";
     }
 
 }

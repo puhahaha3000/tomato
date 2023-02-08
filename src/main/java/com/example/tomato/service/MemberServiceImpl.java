@@ -1,29 +1,35 @@
 package com.example.tomato.service;
 
 import com.example.tomato.mapper.MemberMapper;
+import com.example.tomato.mapper.TradeMapper;
 import com.example.tomato.vo.MemberVO;
+import com.example.tomato.vo.PagingVO;
+import com.example.tomato.vo.TradeVO;
 import lombok.extern.slf4j.Slf4j;
-
-import javax.mail.MessagingException;
-import javax.mail.internet.MimeMessage;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
+import java.util.List;
+
 @Slf4j
 @Service
 @Transactional
 public class MemberServiceImpl implements MemberService {
 
-    @Autowired
-    private MemberMapper memberMapper;
-    
-    @Autowired
-    private JavaMailSender javaMailSender;
+    private final MemberMapper memberMapper;
+    private final TradeMapper tradeMapper;
+    private final JavaMailSender javaMailSender;
+
+    public MemberServiceImpl(MemberMapper memberMapper, TradeMapper tradeMapper, JavaMailSender javaMailSender) {
+        this.memberMapper = memberMapper;
+        this.tradeMapper = tradeMapper;
+        this.javaMailSender = javaMailSender;
+    }
 
     // 유저 회원가입
     @Override
@@ -105,6 +111,22 @@ public class MemberServiceImpl implements MemberService {
             e.printStackTrace();
             return 1;
         }
+    }
+
+    @Override
+    public boolean favorite(int userNo, int tradeNo) {
+
+        log.info("addFavorite() ..");
+
+        return memberMapper.addFavorite(userNo, tradeNo) == 1;
+    }
+
+    @Override
+    public List<TradeVO> myFavorite(int userNo, PagingVO pagingVO) {
+
+        log.info("getMyFavorite() ..");
+
+        return tradeMapper.getMyFavorite(userNo, pagingVO);
     }
 
 }

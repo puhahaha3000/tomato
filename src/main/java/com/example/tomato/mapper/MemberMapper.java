@@ -23,9 +23,10 @@ public interface MemberMapper{
 
     @Select("SELECT NO FROM MEMBERS WHERE ID = #{id}")
     int getNo(String id);
-//<<<<<<< HEAD
-//=======
 
     MemberVO getMemberByEmailAndName(String email, String name);    //email과 이름을 통하여 member id조회
-//>>>>>>> auth/search_id
+
+    @Insert("INSERT INTO FAVORITE(OWNER_NO, TRADE_NO) VALUES (#{userNo}, #{tradeNo})")
+    int addFavorite(int userNo, int tradeNo);
+
 }

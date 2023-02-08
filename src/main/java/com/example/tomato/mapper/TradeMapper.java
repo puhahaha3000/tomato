@@ -26,5 +26,7 @@ public interface TradeMapper {
 
     @Update("UPDATE BOARD SET DEL_FLAG = 'Y' WHERE NO = #{boardNo}")
     int delete(int boardNo);
+
+    List<TradeVO> getMyFavorite(int userNo, PagingVO pagingVO);
 }
 

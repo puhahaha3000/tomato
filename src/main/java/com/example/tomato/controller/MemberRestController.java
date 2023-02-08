@@ -67,4 +67,35 @@ public class MemberRestController {
 
         return entity;
     }
+
+    @PostMapping("/favorite")
+    public ResponseEntity<String> favorite(@RequestBody String tradeNo) {
+
+        int userNo = 1;   // test data
+
+        log.info("User(" + userNo + ") : Favorite add to board : " + tradeNo);
+
+        ResponseEntity<String> entity = null;
+
+        try {
+            boolean result = memberService.favorite(userNo, Integer.parseInt(tradeNo));
+
+            if(result) {
+                entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
+            }
+            else {
+                Exception e = new Exception();
+                e.printStackTrace();
+
+                entity = new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
+            }
+
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            entity = new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+
+        return entity;
+    }
 }

@@ -1,6 +1,10 @@
 package com.example.tomato.service;
 
 import com.example.tomato.vo.MemberVO;
+import com.example.tomato.vo.PagingVO;
+import com.example.tomato.vo.TradeVO;
+
+import java.util.List;
 
 public interface MemberService {
 
@@ -12,4 +16,8 @@ public interface MemberService {
     int getNo(String id);
     MemberVO findId(String email, String name);    //email과 이름을 통하여 member id조회
     int sendMail(String email, String title, String content);        //email을 통하여 title과 content발송
+
+    boolean favorite(int userNo, int boardNo);
+
+    List<TradeVO> myFavorite(int userNo, PagingVO pagingVO);
 }

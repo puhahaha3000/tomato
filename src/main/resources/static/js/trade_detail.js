@@ -1,5 +1,25 @@
 $(document).ready(function () {
 
+    $("#favorite_add_button").click(function() {
+
+        let tradeNo = $("#tradeNo").val();
+
+        $.ajax({
+            cache: false,
+            type: "POST",
+            data: tradeNo,
+            url: "/tomato/member/favorite",
+            contentType: "application/json; charset=UTF-8",
+            success: function (result) {
+                console.log(result);
+                alert("관심목록에 추가 되었습니다.")
+            },
+            error: function (error) {
+                alert("error : " + error);
+            }
+        });
+    });
+
     $("#delete_button").click(function() {
 
         let boardNo = $("#boardNo").val();

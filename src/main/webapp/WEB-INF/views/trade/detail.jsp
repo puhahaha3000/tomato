@@ -84,7 +84,7 @@
                 <a href="#">체팅하기</a>
             </td>
             <td>
-                <button id="favorite_add_button">관심목록 추가</button>
+                <input type="button" id="favorite_add_button" value="관심목록 추가">
             </td>
         </tr>
         <tr>
@@ -93,7 +93,7 @@
             </td>
 
             <td>
-                <button id="delete_button" type="button">삭제하기</button>
+                <input id="delete_button" type="button" value="삭제하기">
             </td>
         </tr>
     </form>

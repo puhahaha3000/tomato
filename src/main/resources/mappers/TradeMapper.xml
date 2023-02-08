@@ -124,4 +124,28 @@
         ]]>
     </update>
 
+    <select id="getMyFavorite" resultMap="TradeMap">
+        <![CDATA[
+              SELECT *
+              FROM (SELECT ROWNUM AS RNUM, R.*
+                    FROM (SELECT T.NO TRADE_NO, ITEM_CATEGORY, T.ADDRESS_NO, T.BUYER_NO, STATUS_NO, PRICE,
+                                 B.NO BOARD_NO, B.MEMBER_NO MEMBER_NO, B.TITLE, B.CONTENT, B.CREATE_DATE, B.MODIFIED_DATE, HIT, B.DEL_FLAG,
+                                 M.NO, M.NICKNAME,
+                                 I.NAME ITEM_CATEGORY_NAME,
+                                 A.SIDO_NAME, A.SIGUNGU_NAME, A.DONG_NAME,
+                                 IMG.FILENAME, IMG.FILEPATH
+                          FROM TRADE T, BOARD B, MEMBERS M, ITEM_CATEGORY I, ADDRESS A, IMAGE IMG, FAVORITE F
+                          WHERE T.BOARD_NO = B.NO
+                          AND B.MEMBER_NO = M.NO
+                          AND T.ITEM_CATEGORY = I.NO
+                          AND T.ADDRESS_NO = A.NO
+                          AND T.NO = IMG.TRADE_NO
+                          AND F.TRADE_NO = T.NO
+                          AND B.DEL_FLAG = 'N'
+                          AND F.OWNER_NO = 1
+                          ORDER BY T.NO DESC) R)
+              WHERE RNUM BETWEEN 1 AND 10
+        ]]>
+    </select>
+
 </mapper>

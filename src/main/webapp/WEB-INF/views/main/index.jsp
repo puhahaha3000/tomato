@@ -65,7 +65,7 @@
 
                     </div>
                     <div class="col-1 heartLogo">
-                        <a href="#"><img src="img/heartIcon.png" class="img-fluid" alt="찜"></a>
+                        <a href="/tomato/member/my_favorite"><img src="img/heartIcon.png" class="img-fluid" alt="찜"></a>
                     </div>
 
                 </div>
