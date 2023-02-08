@@ -7,7 +7,7 @@
    <resultMap id="memberMap" type="MemberVO">
       <id property="id" column="id"/>
       <result property="password" column="password"/>
-      <result property="enabled" column="enabled"/>
+      <result property="delFlag" column="DEL_FLAG"/>
       <collection property="authorityList" resultMap="authMap"></collection>   
    </resultMap>
     
@@ -18,8 +18,8 @@
     
     <select id="getMember" resultMap="memberMap">
        <![CDATA[
-           select * from members , authorities 
-      where members.no = authorities.member_no and members.id= #{id}
+           SELECT * FROM MEMBERS , AUTHORITIES 
+      WHERE MEMBERS.NO = AUTHORITIES.MEMBER_NO AND MEMBERS.ID= #{id}
        ]]>
     </select>
 

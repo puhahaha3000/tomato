@@ -15,18 +15,18 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Service
 public class CustomMemberDetailsService implements UserDetailsService {
-   
-   @Autowired
-   private MemberMapper memberMapper;
-      
-   @Override
-   public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
-      
-      log.warn("Load Member By MemberVO id: " + id);      
-      MemberVO vo = memberMapper.getMember(id);
-      
-      log.warn("queried by MemberVO mapper: " + vo);      
-      return vo == null ? null : new MemberDetailsVO(vo);
-   }
+
+	@Autowired
+	private MemberMapper memberMapper;
+
+	@Override
+	public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
+
+		log.warn("Load Member By MemberVO id: " + id);
+		MemberVO vo = memberMapper.getMember(id);
+
+		log.warn("queried by MemberVO mapper: " + vo);
+		return vo == null ? null : new MemberDetailsVO(vo);
+	}
 
 }

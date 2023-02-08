@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -27,14 +28,14 @@ public class AuthController {
 
 	@Autowired
 	MemberService memberService;
-	
+
 	@GetMapping("/login")
-    public String login(Model model) {
-        log.info("login()...");
-        String pageName = "../auth/login.jsp";
-        model.addAttribute("pageName", pageName);
-        return "template/template";
-    }
+	public String login(Model model) {
+		log.info("login()..");
+		String pageName = "../auth/login.jsp";
+		model.addAttribute("pageName", pageName);
+		return "template/template";
+	}
 
 	/* 메인페이지 로그아웃 */
 	@RequestMapping(value = "logout.do", method = RequestMethod.GET)
@@ -82,12 +83,11 @@ public class AuthController {
 			if (sendResult == true) {
 				log.info("정상발송");
 				pageName = "../auth/search_id_success.jsp";
-			}
-			else {
+			} else {
 				log.info("발송실패");
 				pageName = "../auth/search_id_fail.jsp";
 			}
-			
+
 		}
 
 		model.addAttribute("pageName", pageName);
@@ -105,57 +105,57 @@ public class AuthController {
 
 	/* 이메일인증_action */
 	@PostMapping("/email_auth_action")
-	public String email_auth_action(Model model, @RequestParam String email, AuthInfoVO authInfoVO, HttpSession session) {
+	public String email_auth_action(Model model, @RequestParam String email, AuthInfoVO authInfoVO,
+			HttpSession session) {
 		log.info("email_auth_action()..");
 
 		String pageName = "";
-		
-		
+
 		int findNoByEmailResult = memberService.findNoByEmail(email);
 		int memberNo = 0;
 		if (findNoByEmailResult != -1) {
 			memberNo = findNoByEmailResult;
-			
+
 			String title = email + " 주소로 발송한 인증번호입니다";
 			Random randNum = new Random();
-			int num = randNum.nextInt(999999); //6자리 난수
+			int num = randNum.nextInt(999999); // 6자리 난수
 			String no = Integer.toString(num);
-			while(no.length() < 6) {
+			while (no.length() < 6) {
 				no = "0" + no;
 			}
 			String content = "인증코드: " + no; // email의 내용에 인증용 난수를 첨부
 			boolean sendResult = memberService.sendMail(email, title, content);
-			
+
 			// 오류검증구문
 			if (sendResult == true) {
 				authInfoVO.setMemberNo(memberNo);
 				authInfoVO.setNo(no);
-				
-				boolean setAuthInfoResult = memberService.setAuthInfo(authInfoVO);	//일단 db에 저장은 했는데, 검증과정에서는 session에서 바로 진행 
-				log.info(setAuthInfoResult+"");
-				
-				session.setAttribute("authInfoVO", authInfoVO);	//우선 authinfo는 session으로 넘김. 추후 변경될 가능성 있음
+
+				boolean setAuthInfoResult = memberService.setAuthInfo(authInfoVO); // 일단 db에 저장은 했는데, 검증과정에서는 session에서
+																					// 바로 진행
+				log.info(setAuthInfoResult + "");
+
+				session.setAttribute("authInfoVO", authInfoVO); // 우선 authinfo는 session으로 넘김. 추후 변경될 가능성 있음
 				session.setMaxInactiveInterval(180);
 				model.addAttribute("authInfoVO", authInfoVO);
 				pageName = "../auth/email_auth_confirm.jsp";
-			}
-			else {
+			} else {
 				log.info("발송실패");
 				pageName = "../auth/email_auth_fail.jsp";
 			}
+		} else {
+			log.info("이메일 입력 오류에 의한 발송정보확인불가");
+			pageName = "../auth/email_auth_fail.jsp";
 		}
-		else {
-				log.info("이메일 입력 오류에 의한 발송정보확인불가");
-				pageName = "../auth/email_auth_fail.jsp";
-			}
 
 		model.addAttribute("pageName", pageName);
 		return "template/template";
 	}
-	
+
 	/* 인증코드 검증 */
 	@PostMapping("/email_auth_confirm_action")
-	public String email_auth_confirm_action(Model model, AuthInfoVO authInfoVO, HttpSession session , @RequestParam String no) {
+	public String email_auth_confirm_action(Model model, AuthInfoVO authInfoVO, HttpSession session,
+			@RequestParam String no) {
 		log.info("email_auth_confirm_action()..");
 		String pageName = "";
 		try {
@@ -164,24 +164,22 @@ public class AuthController {
 			log.info("인증코드가 만료되었습니다");
 		}
 		if (authInfoVO.getNo().equals(no)) {
-			pageName = "../auth/email_auth_success.jsp"; //완료시 jsp에 model객체를 통하여 적당한 성공완료보고값을 전달해야할 수 있다.
+			pageName = "../auth/email_auth_success.jsp"; // 완료시 jsp에 model객체를 통하여 적당한 성공완료보고값을 전달해야할 수 있다.
 			session.invalidate();
-		}
-		else
+		} else
 			pageName = "../auth/email_auth_fail.jsp";
-		
+
 		model.addAttribute("pageName", pageName);
 		return "template/template";
 	}
-	
+
 	/* 패스워드변경 진입을 위한 회원검증_action */
 	@PostMapping("/init_password_auth_action")
 	public String init_password_auth_action(Model model, @RequestParam String email, @RequestParam String id) {
 		log.info("init_password_auth_action()..");
 
 		String pageName = "";
-		
-		
+
 		int findNoByEmailResult = memberService.findNoByEmail(email);
 		int memberNoById = 0;
 		try {
@@ -193,33 +191,58 @@ public class AuthController {
 		}
 		if (memberNoById == findNoByEmailResult) {
 			pageName = "../auth/init_pwd.jsp";
-		}
-		else {
+		} else {
 			pageName = "../auth/id_fail.jsp";
 		}
 
 		model.addAttribute("pageName", pageName);
 		return "template/template";
 	}
-	
+
 	@PostMapping("/init_password_action")
 	public String init_password_action(Model model, @RequestParam String id, @RequestParam String password) {
 		log.info("init_password_action()..");
 
 		String pageName = "";
-		
-		
+
 		int memberNo = memberService.getNo(id);
 		boolean initResult = memberService.initPassword(memberNo, password);
 		if (initResult == true) {
-			log.info(id+" 회원님의 비밀번호가 정상적으로 변경되었습니다");
+			log.info(id + " 회원님의 비밀번호가 정상적으로 변경되었습니다");
 			pageName = "../auth/init_password_success.jsp";
-		}
-		else {
-			log.info(id+" 회원님의 비밀번호를 변경하는 데에 실패하였습니다");
+		} else {
+			log.info(id + " 회원님의 비밀번호를 변경하는 데에 실패하였습니다");
 			pageName = "../auth/init_password_fail.jsp";
 		}
 
+		model.addAttribute("pageName", pageName);
+		return "template/template";
+	}
+
+	@PatchMapping("/{user_id}")
+	public String withdrawal(Model model, HttpServletRequest request) {
+		log.info("withdrawal()..");
+		String pageName = "../auth/withdrawal.jsp";
+		HttpSession session = request.getSession(); // session의 id받아오기
+		String id = session.getId();
+		boolean withdrawalResult = memberService.withdrawal(id);
+		model.addAttribute("withdrawalResult", withdrawalResult);
+		model.addAttribute("pageName", pageName);
+		return "template/template";
+	}
+	
+	@GetMapping("/login_password_error")
+	public String login_password_error(Model model) {
+		log.info("login_password_error()..");
+		String pageName = "../auth/login_password_error.jsp";
+		model.addAttribute("pageName", pageName);
+		return "template/template";
+	}
+	
+	@GetMapping("/login_disabled")
+	public String login_disabled(Model model) {
+		log.info("login_disabled()..");
+		String pageName = "../auth/login_disabled.jsp";
 		model.addAttribute("pageName", pageName);
 		return "template/template";
 	}

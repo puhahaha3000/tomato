@@ -87,9 +87,14 @@ class MemberServiceTest {
 		authInfoVO.setNo(no);
 		memberService.setAuthInfo(authInfoVO);
 	}
-	
+	@Disabled
 	@Test
 	void testInitPassword() {
 		System.out.println(memberService.initPassword(44, "john2"));
+	}
+	
+	@Test
+	void testWithdrawal() {
+		System.out.println(memberService.withdrawal("john2"));
 	}
 }

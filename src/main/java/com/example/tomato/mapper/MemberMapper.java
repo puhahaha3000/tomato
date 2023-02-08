@@ -10,7 +10,7 @@ import org.apache.ibatis.annotations.Update;
 @Mapper
 public interface MemberMapper{
 
-	MemberVO getMember(String name);
+	MemberVO getMember(String id);
 
     @Insert("insert into authorities(member_no) values(member_no_seq.currval)")
     void insertAuthorities();
@@ -33,5 +33,8 @@ public interface MemberMapper{
 
     @Update("UPDATE MEMBERS SET PASSWORD = #{encodedPassword} WHERE NO = #{memberNo}")
 	void updatePassword(int memberNo, String encodedPassword);
+
+    @Update("UPDATE MEMBERS SET DEL_FLAG = 'Y' WHERE ID = #{id}")
+	void updateDelFlag(String id);
 
 }

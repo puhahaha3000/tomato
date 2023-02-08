@@ -143,4 +143,15 @@ public class MemberServiceImpl implements MemberService {
 		}
 	}
 
+	@Override
+	public boolean withdrawal(String id) {
+		log.info("withdrawal()..");
+		try {
+			memberMapper.updateDelFlag(id);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
 }

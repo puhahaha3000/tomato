@@ -10,79 +10,87 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
-public class MemberDetailsVO implements UserDetails{
+public class MemberDetailsVO implements UserDetails {
 
-   private String id;
-   private String password;
-   private List<GrantedAuthority> authorities;
-   
-   public MemberDetailsVO(MemberVO member) {
-      this.setAuthorities(member);
-      this.setPassword(member.getPassword());
-      this.setId(member.getId());	
-   }
-      
-   private void setAuthorities(MemberVO memberVO) {
-      List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
+	private String id;
+	private String password;
+	private char delFlag;
+	private List<GrantedAuthority> authorities;
 
-      for (AuthorityVO auth : memberVO.getAuthorityList()) {
-         authorities.add(new SimpleGrantedAuthority(auth.getAuthority()));
-      }      
-      this.authorities = authorities;      
-   }
+	public MemberDetailsVO(MemberVO member) {
+		this.setAuthorities(member);
+		this.setId(member.getId());
+		this.setPassword(member.getPassword());
+		this.setDelFlag(member.getDelFlag());
+	}
 
-   private void setPassword(String password) {
-      this.password = password;
-   }
+	private void setAuthorities(MemberVO memberVO) {
+		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
 
-   private void setId(String id) {
-      this.id = id;      
-   }
+		for (AuthorityVO auth : memberVO.getAuthorityList()) {
+			authorities.add(new SimpleGrantedAuthority(auth.getAuthority()));
+		}
+		this.authorities = authorities;
+	}
 
-   @Override
-   public Collection<? extends GrantedAuthority> getAuthorities() {
-      // TODO Auto-generated method stub
-      return authorities;
-   }
+	private void setId(String id) {
+		this.id = id;
+	}
 
-   @Override
-   public String getPassword() {
-      // TODO Auto-generated method stub
-      return password;
-   }
+	private void setPassword(String password) {
+		this.password = password;
+	}
 
-   @Override
-   public String getUsername() {
-      // TODO Auto-generated method stub
-      return id;
-   }
+	private void setDelFlag(char delFlag) {
+		this.delFlag = delFlag;
+	}
 
-   // 계정이 만료 되지 않았는가?
-   @Override
-   public boolean isAccountNonExpired() {
-      // TODO Auto-generated method stub
-      return true;
-   }
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		// TODO Auto-generated method stub
+		return authorities;
+	}
 
-   // 계정이 잠기지 않았는가?
-   @Override
-   public boolean isAccountNonLocked() {
-      // TODO Auto-generated method stub
-      return true;
-   }
-   // 패스워드가 만료되지 않았는가?
-   @Override
-   public boolean isCredentialsNonExpired() {
-      // TODO Auto-generated method stub
-      return true;
-   }
-   
-   // 계정이 활성화 되었는가?
-   @Override
-   public boolean isEnabled() {
-      // TODO Auto-generated method stub
-      return true;
-   }
+	@Override
+	public String getPassword() {
+		// TODO Auto-generated method stub
+		return password;
+	}
+
+	@Override
+	public String getUsername() {
+		// TODO Auto-generated method stub
+		return id;
+	}
+
+	// 계정이 만료 되지 않았는가?
+	@Override
+	public boolean isAccountNonExpired() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	// 계정이 잠기지 않았는가?
+	@Override
+	public boolean isAccountNonLocked() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	// 패스워드가 만료되지 않았는가?
+	@Override
+	public boolean isCredentialsNonExpired() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	// 계정이 활성화 되었는가?
+	@Override
+	public boolean isEnabled() {
+		if (delFlag == 'N')
+			return true;
+		else
+			return false;
+	}
 
 }

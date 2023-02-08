@@ -61,4 +61,5 @@ class MemberMapperTest {
 		boolean isPass = new BCryptPasswordEncoder().matches("john2",member.getPassword());
 		System.out.println(isPass);
 	}
+	
 }
