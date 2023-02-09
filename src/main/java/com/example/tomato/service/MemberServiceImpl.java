@@ -129,4 +129,12 @@ public class MemberServiceImpl implements MemberService {
         return tradeMapper.getMyFavorite(userNo, pagingVO);
     }
 
+    @Override
+    public List<TradeVO> myArticle(int userNo, PagingVO pagingVO) {
+
+        log.info("getMyArticle() ..");
+
+        return tradeMapper.getMyArticle(userNo, pagingVO);
+    }
+
 }

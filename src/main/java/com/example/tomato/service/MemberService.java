@@ -20,4 +20,6 @@ public interface MemberService {
     boolean favorite(int userNo, int boardNo);
 
     List<TradeVO> myFavorite(int userNo, PagingVO pagingVO);
+
+    List<TradeVO> myArticle(int userNo, PagingVO pagingVO);
 }

@@ -37,7 +37,7 @@
                     </div>
 
                     <div class="col-1 myMarketCol">
-                        <a href="#" class="link-success myMarket">내상점</a>
+                        <a href="/tomato/member/my_article" class="link-success myMarket">내상점</a>
 
                     </div>
                     <div class="col-1 LoginCol" style="width: 110px;">

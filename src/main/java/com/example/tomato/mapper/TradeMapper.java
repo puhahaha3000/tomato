@@ -28,5 +28,7 @@ public interface TradeMapper {
     int delete(int boardNo);
 
     List<TradeVO> getMyFavorite(int userNo, PagingVO pagingVO);
+
+    List<TradeVO> getMyArticle(int userNo, PagingVO pagingVO);
 }
 

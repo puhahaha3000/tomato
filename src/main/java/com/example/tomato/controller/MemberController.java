@@ -91,11 +91,26 @@ public class MemberController {
 
         int userNo = 1;   // test data
 
-        log.info("myFavorite()...");
+        log.info("myFavorite() ..");
 
         String pageName = "../member/favorite.jsp";
 
         model.addAttribute("myFavorite", memberService.myFavorite(userNo, pagingVO));
+        model.addAttribute("pageName", pageName);
+
+        return "template/template";
+    }
+
+    @GetMapping("/my_article")
+    public String myArticle(Model model) {
+
+        int userNo = 1;   // test data
+
+        log.info("myArticle() ..");
+
+        String pageName = "../member/my_article.jsp";
+
+        model.addAttribute("myArticle", memberService.myArticle(userNo, pagingVO));
         model.addAttribute("pageName", pageName);
 
         return "template/template";
