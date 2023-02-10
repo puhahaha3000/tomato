@@ -42,4 +42,9 @@ public class TestController {
         log.info("member/favorite()");
         return "member/favorite";
     }
+    @GetMapping("/trade")
+    public String trade(){
+        log.info("trade/list()");
+        return "trade/list";
+    }
 }

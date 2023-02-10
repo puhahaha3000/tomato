@@ -34,10 +34,10 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
         <div
           class="position-absolute top-50 start-50 translate-middle favoriteTable"
         >
-          <div class="card mb-3 favoriteCard">
-            <div class="row g-0">
+          <div class="card mb-3 favoriteCard" style="width: 900px !important">
+            <div class="row g-0 flex-nowrap">
               <div
-                class="col-md-2 d-flex justify-content-center"
+                class="col-2 d-flex justify-content-center flex-nowrap"
                 style="width: 100px; height: 100px; margin-left: 20px"
               >
                 <img
@@ -46,7 +46,7 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
                   alt="상품썸네일"
                 />
               </div>
-              <div class="col-md-10">
+              <div class="col-10">
                 <table
                   class="table table-borderless"
                   style="margin-bottom: 0px"
