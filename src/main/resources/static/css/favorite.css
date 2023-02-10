@@ -7,7 +7,37 @@
   width: 1200px;
   max-width: none !important;
   margin-top: 60px;
+  height: 80%;
 }
 h3 {
   text-align: center;
+}
+.favoriteTable {
+  width: 900px;
+  margin-top: 100px;
+}
+.favoriteTbody td {
+  text-align: center;
+}
+td > img {
+  width: 30px;
+  height: 30px;
+}
+.favoriteCard {
+  border: 2.5px solid tomato !important;
+  padding: 10px 0px 10px 0px;
+}
+.favoriteCard td {
+  color: darkgreen;
+}
+.tableTitle:hover {
+  background: #efefef;
+  cursor: pointer;
+}
+.favoriteCard a {
+  text-decoration: none;
+  color: darkgreen;
+}
+.favoriteTbody img {
+  cursor: pointer;
 }

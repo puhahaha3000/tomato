@@ -17,6 +17,10 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
       href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css"
+    />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
   <body>
@@ -24,7 +28,52 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
       <jsp:include page="../template/header.jsp" />
     </header>
     <div class="container favoriteCon">
-      <h3>내 찜목록</h3>
+      <h3 style="color: #f57328">내 찜목록</h3>
+      <!--찜목록의 리스트를 테이블 형태로 나열하기-->
+      <div class="position-relative">
+        <div
+          class="position-absolute top-50 start-50 translate-middle favoriteTable"
+        >
+          <div class="card mb-3 favoriteCard">
+            <div class="row g-0">
+              <div
+                class="col-md-2 d-flex justify-content-center"
+                style="width: 100px; height: 100px; margin-left: 20px"
+              >
+                <img
+                  src="img/tomatoLogo.jpg"
+                  class="img-fluid rounded-start"
+                  alt="상품썸네일"
+                />
+              </div>
+              <div class="col-md-10">
+                <table
+                  class="table table-borderless"
+                  style="margin-bottom: 0px"
+                >
+                  <tbody class="favoriteTbody">
+                    <tr>
+                      <td colspan="3" class="tableTitle">
+                        <a href="##">글 제목</a>
+                      </td>
+                      <td>가격</td>
+                    </tr>
+                    <tr>
+                      <td>거래장소</td>
+                      <td>작성자</td>
+                      <td>판매상태</td>
+                      <td>
+                        <img id="darkHeart" src="img/darkheart.png" />
+                        <img id="whiteHeart" src="img/whiteHeart.png" />
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <footer>
       <jsp:include page="../template/footer.jsp" />
@@ -35,4 +84,29 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
       crossorigin="anonymous"
     ></script>
   </body>
+  <script
+    src="https://code.jquery.com/jquery-3.5.1.js"
+    integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"
+  ></script>
+
+  <script>
+    $(document).ready(function () {
+      /*웹페이지 열었을 때*/
+      $("#darkHeart").show();
+      $("#whiteHeart").hide();
+
+      /*darkHaert를 클릭했을 때 whiteHeart를 보여줌*/
+      $("#darkHeart").click(function () {
+        $("#darkHeart").hide();
+        $("#whiteHeart").show();
+      });
+
+      /*whiteHeart를 클릭했을 때 darkHeart를 보여줌*/
+      $("#whiteHeart").click(function () {
+        $("#darkHeart").show();
+        $("#whiteHeart").hide();
+      });
+    });
+  </script>
 </html>
