@@ -1,9 +1,6 @@
 package com.example.tomato.service;
 
-import com.example.tomato.vo.ItemCategoryVO;
-import com.example.tomato.vo.PagingVO;
-import com.example.tomato.vo.TradeStatusVO;
-import com.example.tomato.vo.TradeVO;
+import com.example.tomato.vo.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
@@ -24,4 +21,6 @@ public interface TradeService {
     List<TradeStatusVO> statusList();
 
     boolean remove(int boardNo);
+
+    List<TradeVO> getList(String curPage, TradeSearchParamVO searchParamVO);
 }

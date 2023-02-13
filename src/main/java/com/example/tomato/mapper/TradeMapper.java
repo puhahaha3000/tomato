@@ -30,5 +30,8 @@ public interface TradeMapper {
     List<TradeVO> getMyFavorite(int userNo, PagingVO pagingVO);
 
     List<TradeVO> getMyArticle(int userNo, PagingVO pagingVO);
+
+    List<TradeVO> getList(TradeSearchParamVO tradeSearchParamVO);
+    int getCount(TradeSearchParamVO tradeSearchParamVO);
 }
 

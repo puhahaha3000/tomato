@@ -27,9 +27,9 @@
     
     
                             <form class="d-flex align-self-center" role="search">
-                                <input class="form-control me-2 searchWrite" type="search" placeholder="입력해주세요"
+                                <input id="search-input" class="form-control me-2 searchWrite" type="search" placeholder="입력해주세요"
                                     aria-label="Search" style="border: 3px solid tomato;">
-                                <button class="btn btn-outline-success searchButton" type="submit"
+                                <button id="search-button" class="btn btn-outline-success searchButton" type="submit"
                                     style="border: 3px solid tomato;">검색</button>
                             </form>
     

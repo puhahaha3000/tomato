@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-<table width="1300" border="1">
+<table id="tradeList" width="1300" border="1">
     <c:forEach var="trade" items="${trades}" varStatus="boardVOList, itemCategoryVOList, addressVOList, imageVOList">
     <tr>
         <c:forEach var="image" items="${trade.imageVOList}">

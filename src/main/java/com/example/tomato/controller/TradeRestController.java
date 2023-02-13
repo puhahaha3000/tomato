@@ -1,9 +1,7 @@
 package com.example.tomato.controller;
 
 import com.example.tomato.service.TradeService;
-import com.example.tomato.vo.ItemCategoryVO;
-import com.example.tomato.vo.TradeStatusVO;
-import com.example.tomato.vo.TradeVO;
+import com.example.tomato.vo.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +17,7 @@ import java.util.List;
 public class TradeRestController {
 
     private final TradeService tradeService;
+    private final PagingVO pagingVO = new PagingVO();
 
     public TradeRestController(TradeService tradeService) {
 
@@ -56,18 +55,16 @@ public class TradeRestController {
         try {
             boolean result = tradeService.writeTrade(tradeVO, file);
 
-            if(result) {
+            if (result) {
                 entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
-            }
-            else {
+            } else {
                 Exception e = new Exception();
                 e.printStackTrace();
 
                 entity = new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
             }
 
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
             entity = new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
@@ -89,26 +86,22 @@ public class TradeRestController {
         try {
             boolean result = tradeService.modify(tradeVO);
 
-            if(result) {
+            if (result) {
                 entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
-            }
-            else {
+            } else {
                 Exception e = new Exception();
                 e.printStackTrace();
 
                 entity = new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
             }
 
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
             entity = new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
 
         return entity;
     }
-
-
 
 
     @DeleteMapping("/remove")
@@ -120,20 +113,18 @@ public class TradeRestController {
 
         try {
             boolean result = tradeService.remove(Integer.parseInt(boardNo));
-            log.info("test" + result );
+            log.info("test" + result);
 
-            if(result) {
+            if (result) {
                 entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
-            }
-            else {
+            } else {
                 Exception e = new Exception();
                 e.printStackTrace();
 
                 entity = new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
             }
 
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
             entity = new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
@@ -141,4 +132,11 @@ public class TradeRestController {
         return entity;
     }
 
+    @GetMapping("list")
+    public List<TradeVO> list(@RequestBody String curPage, TradeSearchParamVO searchParamVO) {
+
+        log.info("list(" + curPage + ", " + searchParamVO.getSearch() + ", " + searchParamVO.getItemCategory() + ")");
+
+        return tradeService.getList(curPage, searchParamVO);
+    }
 }

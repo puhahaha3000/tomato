@@ -19,6 +19,7 @@ public class TradeServiceImpl implements TradeService {
 
     private final TradeMapper tradeMapper;
     private final BoardMapper boardMapper;
+    private final PagingVO pagingVO = new PagingVO();
 
     public TradeServiceImpl(TradeMapper tradeMapper, BoardMapper boardMapper) {
 
@@ -133,4 +134,15 @@ public class TradeServiceImpl implements TradeService {
         return tradeResult == 1;
     }
 
+    @Override
+    public List<TradeVO> getList(String curPage, TradeSearchParamVO tradeSearchParamVO) {
+
+        log.info("Trade : getList(" + tradeSearchParamVO.toString() + ")");
+
+        pagingVO.init(tradeMapper.getCount(tradeSearchParamVO), Integer.parseInt(curPage));
+        tradeSearchParamVO.setStartNo(pagingVO.getPageRowNumBegin());
+        tradeSearchParamVO.setEndNo(pagingVO.getPageRowNumEnd());
+
+        return tradeMapper.getList(tradeSearchParamVO);
+    }
 }
