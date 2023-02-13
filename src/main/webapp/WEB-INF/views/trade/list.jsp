@@ -28,7 +28,10 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
     <header>
       <jsp:include page="../template/header.jsp" />
     </header>
-    <div class="container tradeCon"></div>
+    <div class="container tradeCon">
+      <h3>거래 게시판</h3>
+      테스트용
+    </div>
     <footer>
       <jsp:include page="../template/footer.jsp" />
     </footer>

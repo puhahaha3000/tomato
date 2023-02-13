@@ -1,184 +1,180 @@
 * {
-    font-family: 'Do Hyeon', sans-serif;
-    font-size: 20px;
+  font-family: "Do Hyeon", sans-serif;
+  font-size: 20px;
 }
 
 .header,
 .nav {
-    width: 1200px;
-    max-width: none !important;
+  width: 1200px;
+  max-width: none !important;
 }
 
 .searchWrite {
-    border-color: tomato;
-    border-width: 3px;
+  border-color: tomato;
+  border-width: 3px;
 }
 
 .searchButton {
-    width: 80px;
-    border-color: tomato;
-    border-width: 3px;
-    color: darkgreen;
-    text-decoration-color: darkgreen;
+  width: 80px;
+  border-color: tomato;
+  border-width: 3px;
+  color: darkgreen;
+  text-decoration-color: darkgreen;
 }
 
 .searchButton:active {
-    position: relative;
-    top: 2px;
+  position: relative;
+  top: 2px;
 }
 
 .tomatologo {
-    width: 100px;
-    height: 100px;
-    margin-left: 30px;
+  width: 100px;
+  height: 100px;
+  margin-left: 30px;
 }
 
 .headerrow {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.headerrow>.col-1 {
-    height: 50px;
+.headerrow > .col-1 {
+  height: 50px;
 }
 
-.headerrow>div {
-    top: 50%;
-    left: 50%;
-    margin: 25px 0 0 0px;
+.headerrow > div {
+  top: 50%;
+  left: 50%;
+  margin: 25px 0 0 0px;
 }
 
-.BoardMenu>.btn {
-    border-color: tomato;
-    border: 3px;
-}
-
-.myMarket {
-    text-decoration-line: none;
+.BoardMenu > .btn {
+  border-color: tomato;
+  border: 3px;
 }
 
 .myMarket {
-    margin-left: 10px;
+  text-decoration-line: none;
+}
 
+.myMarket {
+  margin-left: 10px;
 
-    cursor: pointer;
-    outline: none;
-
+  cursor: pointer;
+  outline: none;
 }
 
 .myMarket:active {
-
-    position: relative;
-    top: 2px;
+  position: relative;
+  top: 2px;
 }
 
 .myMarketCol,
 .LoginCol {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .Login {
-    width: 100px;
-    font-size: 15px;
-    border-radius: 10px;
+  width: 100px;
+  font-size: 15px;
+  border-radius: 10px;
 
-    cursor: pointer;
-    outline: none;
-    box-shadow: 1px 4px 0 rgb(0, 0, 0, 0.2);
+  cursor: pointer;
+  outline: none;
+  box-shadow: 1px 4px 0 rgb(0, 0, 0, 0.2);
 }
 
 .Login:active {
-    box-shadow: 1px 1px 0 rgb(0, 0, 0, 0.2);
-    position: relative;
-    top: 2px;
+  box-shadow: 1px 1px 0 rgb(0, 0, 0, 0.2);
+  position: relative;
+  top: 2px;
 }
 
 .navrow {
-    width: 1200px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
+  width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .navrow .col-1 {
-    width: 60px;
-    height: 60px;
-    padding-top: 10px;
-
+  width: 60px;
+  height: 60px;
+  padding-top: 10px;
 }
 
 .selTable,
 .buyTable {
-    width: 1200px;
+  width: 1200px;
 }
 
 .buyTable,
 .selTable tbody {
-    color: darkgreen
+  color: darkgreen;
 }
 
 .buyTableHead,
 .selTableHead thead {
-    color: tomato;
+  color: tomato;
 }
 
 .selTableHead {
-    color: tomato
+  color: tomato;
 }
 
 .sellCol,
 .buyCol {
-    display: flex;
-    align-items: flex-start;
+  display: flex;
+  align-items: flex-start;
 }
 
 .emptySpace {
-    width: 400px;
+  width: 400px;
 }
 
 .nav {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .buyMorerow,
 .sellMorerow {
-    width: 1200px;
+  width: 1200px;
 }
 
 .buyMoreCol,
 .sellMoreCol {
-    width: 1200px;
-    display: flex;
-    justify-content: center;
+  width: 1200px;
+  display: flex;
+  justify-content: center;
 }
 
-.writeLog :hover>img,
-.chatLogo :hover>img,
-.heartLogo :hover>img {
-    transform: scale(1.4);
+.writeLog :hover > img,
+.chatLogo :hover > img,
+.heartLogo :hover > img {
+  transform: scale(1.4);
 }
 
-.BoardMenu>a {
-    text-decoration-line: none;
-    color: tomato;
+.BoardMenu > a {
+  text-decoration-line: none;
+  color: tomato;
 }
 
-.BoardMenu>a:hover {
-    color: darkgreen;
+.BoardMenu > a:hover {
+  color: darkgreen;
 }
 
-.BoardMenu>a:active {
-    font-size: larger;
+.BoardMenu > a:active {
+  font-size: larger;
 }
 
 .footerRow {
-    display: flex;
-    text-align: center;
+  display: flex;
+  text-align: center;
 }
 
 .footerRow span {
-    margin-top: 100px;
-    border-top: 3px solid black;
+  margin-top: 100px;
+  border-top: 3px solid black;
 }

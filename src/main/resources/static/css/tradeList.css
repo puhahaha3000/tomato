@@ -1,10 +1,15 @@
 * {
   font-family: "Do Hyeon", sans-serif;
   font-size: 20px;
+  background-color: blue;
+  color: red;
 }
 .tradeCon {
   width: 1200px;
   max-width: none !important;
   margin-top: 60px;
   height: 80%;
+}
+h3 {
+  text-align: center;
 }
