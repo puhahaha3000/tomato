@@ -30,7 +30,127 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
     </header>
     <div class="container tradeCon">
       <h3>거래 게시판</h3>
-      테스트용
+      <!--검색창 폼-->
+      <form action="" method="GET">
+        <div
+          class="mx-quto input-group mt-3 d-flex justify-content-center"
+          id="search"
+        >
+          <mx-auto>
+            <input
+              name="query"
+              type="text"
+              class="form-control"
+              placeholder="검색어 입력"
+              aria-label="search"
+              aria-describedby="button-addon2"
+            />
+          </mx-auto>
+
+          <button class="btn btn-success" type="submit" id="button-addon2">
+            검색
+          </button>
+        </div>
+      </form>
+      <!--라디오 버튼 그룹-->
+      <div class="d-flex justify-content-center">
+        <ul class="list-group checkUl">
+          <li class="list-group-item d-flex justify-content-around checkLi">
+            <div>
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="Checkbox1"
+              />
+              <label class="form-check-label" for="Checkbox1"
+                >카테고리1번</label
+              >
+            </div>
+
+            <div>
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="Checkbox2"
+              />
+              <label class="form-check-label" for="Checkbox2"
+                >카테고리2번</label
+              >
+            </div>
+            <div>
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="Checkbox3"
+              />
+              <label class="form-check-label" for="Checkbox3"
+                >카테고리3번</label
+              >
+            </div>
+            <div>
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="Checkbox4"
+              />
+              <label class="form-check-label" for="Checkbox4"
+                >카테고리4번</label
+              >
+            </div>
+          </li>
+          <li class="list-group-item d-flex justify-content-around checkLi">
+            <div>
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="Checkbox5"
+              />
+              <label class="form-check-label" for="Checkbox5"
+                >카테고리5번</label
+              >
+            </div>
+
+            <div>
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="Checkbox6"
+              />
+              <label class="form-check-label" for="Checkbox6"
+                >카테고리6번</label
+              >
+            </div>
+            <div>
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="Checkbox7"
+              />
+              <label class="form-check-label" for="Checkbox7"
+                >카테고리7번</label
+              >
+            </div>
+            <div>
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="Checkbox8"
+              />
+              <label class="form-check-label" for="Checkbox8"
+                >카테고리8번</label
+              >
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
     <footer>
       <jsp:include page="../template/footer.jsp" />
