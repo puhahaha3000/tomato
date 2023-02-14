@@ -5,6 +5,7 @@
 .mypgCon {
   width: 1200px;
   max-width: none !important;
+  flex: 1;
 }
 #signInForm {
   width: 800px;

@@ -5,6 +5,7 @@
 .myarticleCon {
   width: 1200px;
   max-width: none !important;
+  flex: 1;
 }
 #dropdonwBtn {
   width: 200px;

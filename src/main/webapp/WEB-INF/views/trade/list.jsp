@@ -23,6 +23,8 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
       href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css"
     />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/make_calendar.js" defer></script>
+    <script src="js/signup.js"></script>
   </head>
   <body>
     <header>
@@ -44,6 +46,7 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
               placeholder="검색어 입력"
               aria-label="search"
               aria-describedby="button-addon2"
+              style="width: 300px"
             />
           </mx-auto>
 
@@ -149,6 +152,185 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
               >
             </div>
           </li>
+
+          <div class="input-group mb-3 justify-content-around">
+            <!--가격설정하는 폼-->
+            <form action="" class="d-flex">
+              <input
+                type="text"
+                class="form-control"
+                style="height: 30px; width: 150px; border: 2.5px solid #f5af19"
+              />
+              &nbsp;~&nbsp;
+              <input
+                type="text"
+                class="form-control"
+                style="height: 30px; width: 150px; border: 2.5px solid #f5af19"
+              />
+              <button
+                class="priceBtn"
+                type="button"
+                id="button-addon2"
+                style="height: 30px; width: 70px"
+              >
+                설정
+              </button>
+            </form>
+            <!--주소 설정하는 폼-->
+            <select id="sido_name" name="input_sido_name" class="adress">
+              <option>시/도</option>
+              <c:forEach var="sido_name" items="${sido_names}">
+                <option value="${sido_name}">${sido_name}</option>
+              </c:forEach>
+            </select>
+            <select id="sigungu_name" name="input_sigungu_name" class="adress">
+              <option>군/구</option>
+            </select>
+            <select id="dong_name" name="input_dong_name" class="adress">
+              <option>동</option>
+            </select>
+          </div>
+
+          <form action="" class="d-flex">
+            &nbsp;작성일&nbsp;
+            <div class="input-group mb-3" style="width: 250px">
+              <input
+                type="text"
+                class="form-control"
+                style="height: 30px; border: 2.5px solid tomato"
+              />
+              <button
+                type="button"
+                class="btn"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+                style="height: 30px; width: 70px; border: 2.5px solid darkgreen"
+              ></button>
+              <!-- Modal -->
+              <div
+                class="modal fade"
+                id="exampleModal"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">
+                        작성시작일을 선택하세요
+                      </h1>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <section id="sect" class="d-flex justify-content-center">
+                        <table id="calendar">
+                          <thead>
+                            <tr>
+                              <td>
+                                <label onclick="prevCalendar()">&lt;</label>
+                              </td>
+                              <td id="calendar_YM" colspan="5">yyyy년 m월</td>
+                              <td>
+                                <label onclick="nextCalendar()">&gt;</label>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>일</td>
+                              <td>월</td>
+                              <td>화</td>
+                              <td>수</td>
+                              <td>목</td>
+                              <td>금</td>
+                              <td>토</td>
+                            </tr>
+                          </thead>
+
+                          <tbody></tbody>
+                        </table>
+                        <!-- calendar -->
+                      </section>
+                      <!-- sect -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            &nbsp;~&nbsp;
+            <div class="input-group mb-3" style="width: 250px">
+              <input
+                type="text"
+                class="form-control"
+                style="height: 30px; border: 2.5px solid tomato"
+              />
+              <button
+                type="button"
+                class="btn"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal2"
+                style="height: 30px; width: 70px; border: 2.5px solid darkgreen"
+              ></button>
+              <!-- Modal -->
+              <div
+                class="modal fade"
+                id="exampleModal2"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">
+                        작성 마지막일을 선택하세요
+                      </h1>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <section id="sect" class="d-flex justify-content-center">
+                        <table id="calendar2">
+                          <thead>
+                            <tr>
+                              <td>
+                                <label onclick="prevCalendar2()">&lt;</label>
+                              </td>
+                              <td id="calendar_YM2" colspan="5">yyyy년 m월</td>
+                              <td>
+                                <label onclick="nextCalendar2()">&gt;</label>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>일</td>
+                              <td>월</td>
+                              <td>화</td>
+                              <td>수</td>
+                              <td>목</td>
+                              <td>금</td>
+                              <td>토</td>
+                            </tr>
+                          </thead>
+
+                          <tbody id="c2TBODY"></tbody>
+                        </table>
+                        <!-- calendar -->
+                      </section>
+                      <!-- sect -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
         </ul>
       </div>
     </div>

@@ -1,67 +1,68 @@
 * {
-    font-family: 'Do Hyeon', sans-serif;
-    font-size: 20px;
+  font-family: "Do Hyeon", sans-serif;
+  font-size: 20px;
 }
-.modifyCon{
-    width: 1200px;
-    max-width: none !important;
+.modifyCon {
+  width: 1200px;
+  max-width: none !important;
+  flex: 1;
 }
-.writeInput{
-    margin-right: 20px;
-    width: 410px;
-    border: 2.5px solid tomato;
-    border-radius: 5px;
+.writeInput {
+  margin-right: 20px;
+  width: 410px;
+  border: 2.5px solid tomato;
+  border-radius: 5px;
 }
-.inputName{
-    width: 150px;
-    justify-content: center;
+.inputName {
+  width: 150px;
+  justify-content: center;
 }
-.modifyBtn{
-    width: 170px;
-    display: inline-block;
-    font-size: 18px;
-    border-radius: 5px;
-    color: darkgreen;
-    background-color: white;
-    border: 2.5px solid tomato;
+.modifyBtn {
+  width: 170px;
+  display: inline-block;
+  font-size: 18px;
+  border-radius: 5px;
+  color: darkgreen;
+  background-color: white;
+  border: 2.5px solid tomato;
 }
-.modifyBtn:active{
-    position: relative;
-    top: 2px;
+.modifyBtn:active {
+  position: relative;
+  top: 2px;
 }
-.adress{
-    width: 130px;
-    font-size: 20px;
-    border: 2.5px solid;
-    border-color: tomato;
-    border-radius: 5px;
-    margin-left: 10px;
-    margin-right: 10px;
-    text-align: center;
+.adress {
+  width: 130px;
+  font-size: 20px;
+  border: 2.5px solid;
+  border-color: tomato;
+  border-radius: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: center;
 }
-.joinButton{
-    width: 150px;
-    border: 2.5px solid tomato;
-    color: darkgreen;
-    text-decoration-color: darkgreen;
-    background-color: white;
-    border-radius: 5px;
+.joinButton {
+  width: 150px;
+  border: 2.5px solid tomato;
+  color: darkgreen;
+  text-decoration-color: darkgreen;
+  background-color: white;
+  border-radius: 5px;
 }
-.joinButton:active{
-    position: relative;
-    top: 2px;
+.joinButton:active {
+  position: relative;
+  top: 2px;
 }
-.joinButton:hover{
-    background-color: darkgreen;
-    color: white;
-    border: 2.5px solid white;
+.joinButton:hover {
+  background-color: darkgreen;
+  color: white;
+  border: 2.5px solid white;
 }
-td{
-    display: flex;
-    flex-wrap: nowrap;
+td {
+  display: flex;
+  flex-wrap: nowrap;
 }
-tr{
-    display: flex;
-    flex-wrap: nowrap;
-    margin-bottom: 10px;
+tr {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-bottom: 10px;
 }

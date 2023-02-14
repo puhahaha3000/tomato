@@ -6,7 +6,7 @@
   width: 1200px;
   max-width: none !important;
   margin-top: 60px;
-  height: 80%;
+  flex: 1;
 }
 h3 {
   text-align: center;
@@ -22,5 +22,28 @@ h3 {
 }
 .checkUl {
   border: 2.5px solid tomato;
-  width: 800px;
+  width: 1000px;
+}
+.adress {
+  width: 150px;
+  height: 30px;
+  border: 2.5px solid #f5af19;
+  color: darkgreen;
+  background-color: white;
+}
+.priceBtn {
+  border: 2.5px solid #f5af19;
+  border-radius: 7px;
+  color: darkgreen;
+  background-color: white;
+  margin-left: 10px;
+}
+.priceBtn:hover {
+  background-color: darkgreen;
+  color: white;
+  border: none;
+}
+.priceBtn:active {
+  position: relative;
+  top: 2px;
 }
