@@ -24,8 +24,8 @@ public class PagingVO implements Serializable {
     private int prevBlock;
     private int nextBlock;
 
-    private int pageBegin;    // db 들고올 실제 게시물 위치 시작
-    private int pageEnd;    // db 들고올 실제 게시물 위치 끝
+    private int pageRowNumBegin;    // db 들고올 실제 게시물 위치 시작
+    private int pageRowNumEnd;    // db 들고올 실제 게시물 위치 끝
 
     private int blockBegin;    // 블록의 시작번호
     private int blockEnd;    // 블록의 끝번호
@@ -40,30 +40,20 @@ public class PagingVO implements Serializable {
     }
 
     public void setPageRange() {
-        pageBegin = (curPage - 1) * PAGE_SCALE + 1;
-        pageEnd = pageBegin + PAGE_SCALE - 1;
+        pageRowNumBegin = (curPage - 1) * PAGE_SCALE + 1;
+        pageRowNumEnd = pageRowNumBegin + PAGE_SCALE - 1;
     }
 
     public void setBlockRange() {
-        curBlock = (int) Math.ceil((curPage - 1.0) / BLOCK_SCALE) + 1;
+        curBlock = (int) Math.ceil((curPage) * 1.0 / BLOCK_SCALE);
         blockBegin = (curBlock - 1) * BLOCK_SCALE + 1;
-        blockEnd = blockBegin + BLOCK_SCALE - 1;
-
-        if (blockEnd > totPage) {
-            blockEnd = totPage;
-        }
-
-        prevPage = (curPage == 1) ? 1 : (curBlock - 1) * BLOCK_SCALE;
-        nextPage = curBlock > totBlock ? (curBlock * BLOCK_SCALE)
-                : (curBlock * BLOCK_SCALE) + 1;
-
-        if (prevPage <= 0) {
-            prevPage = 1;
-        }
-
-        if (nextPage >= totPage) {
-            nextPage = totPage;
-        }
+        blockEnd = Math.min(blockBegin + BLOCK_SCALE - 1, totPage);
+        
+        prevPage = Math.max(curPage - 1, 1);
+        nextPage = Math.min(curPage + 1, totPage);
+        
+        setPrevBlock();
+        setNextPage();
     }
 
     public void setTotPage(int count) {
@@ -77,7 +67,23 @@ public class PagingVO implements Serializable {
     }
 
     public void setTotBlock() {
-        this.totBlock = (int) Math.ceil((double) totPage / (double) BLOCK_SCALE);
+        this.totBlock = (int) Math.ceil(1.0 * totPage / BLOCK_SCALE);
+    }
+    
+    public void setPrevBlock() {
+        if (curPage <= 1) {
+            prevBlock = 1;
+        } else {
+            prevBlock = Math.max((curBlock - 1) * BLOCK_SCALE, 1);
+        }
+    }
+    
+    private void setNextPage() {
+        if (curBlock >= totBlock) {
+            nextBlock = curBlock * BLOCK_SCALE;
+        } else {
+            nextBlock = Math.min((curBlock * BLOCK_SCALE) + 1, totPage);
+        }
     }
 }
 

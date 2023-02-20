@@ -28,7 +28,7 @@ public class BoardVO {
 	private String title;
 	private String content;
 	private Timestamp createDate;
-	private Timestamp modified_date;
+	private Timestamp modifiedDate;
 	private int hit;
 	private char delFlag;
 

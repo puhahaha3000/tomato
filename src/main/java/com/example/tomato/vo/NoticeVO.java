@@ -1,5 +1,7 @@
 package com.example.tomato.vo;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,4 +18,6 @@ BOARD_NO NOT NULL NUMBER
 public class NoticeVO {
 	private int no;
 	private int boardNo;
+	
+	private List<BoardVO> boardVOList;
 }

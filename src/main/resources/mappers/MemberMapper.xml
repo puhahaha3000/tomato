@@ -18,8 +18,8 @@
     
     <select id="getMember" resultMap="memberMap">
        <![CDATA[
-           SELECT * FROM MEMBERS , AUTHORITIES 
-      WHERE MEMBERS.NO = AUTHORITIES.MEMBER_NO AND MEMBERS.ID= #{id}
+       		SELECT * FROM MEMBERS , AUTHORITIES 
+       		WHERE MEMBERS.NO = AUTHORITIES.MEMBER_NO AND MEMBERS.ID= #{id}
        ]]>
     </select>
 
