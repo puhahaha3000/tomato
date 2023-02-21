@@ -33,4 +33,7 @@ public interface NoticeMapper {
 
 	void updateNotice(BoardVO boardVO);
 
+	@Update("UPDATE BOARD SET HIT = HIT + 1 WHERE NO = #{no}")
+	void updateNoticeHit(int no);
+
 }

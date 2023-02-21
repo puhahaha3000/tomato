@@ -1,6 +1,5 @@
 package com.example.tomato.service;
 
-import com.example.tomato.vo.AuthInfoVO;
 import com.example.tomato.vo.MemberVO;
 
 public interface MemberService {
@@ -12,9 +11,7 @@ public interface MemberService {
     int getNo(String id);
     
     MemberVO findId(String email, String name);		//email과 이름을 통하여 member id조회
-    boolean sendMail(String email, String title, String content);	//email을 통하여 title과 content발송 추후에 auth로 경로수정필요
 	int findNoByEmail(String email);	//email을 통하여 member no조회 (단, email입력오류발생시 -1을 반환)
-	boolean setAuthInfo(AuthInfoVO authInfoVO);	//authInfo에 회원번호, 인증번호, 발송시간 저장 추후에 auth로 경로수정필요
-	boolean initPassword(int memberNo, String password);	//회원번호와 (새로운)비밀번호를 입력받아서 해당 회원의 비밀번호를 초기화 추후에 auth로 경로수정필요
+	boolean initPassword(int memberNo, String password);	//회원번호와 (새로운)비밀번호를 입력받아서 해당 회원의 비밀번호를 초기화
 	boolean withdrawal(String id);	//해당id의 회원탈퇴기능
 }

@@ -31,7 +31,6 @@ public class PagingVO implements Serializable {
     private int blockEnd;    // 블록의 끝번호
 
     public void init(int count, int curPage) {
-        this.curBlock = 1;
         this.curPage = curPage;
         setTotPage(count);
         setPageRange();

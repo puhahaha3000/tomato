@@ -66,4 +66,15 @@ public class NoticeServiceImpl implements NoticeService {
 			return false;
 		}
 	}
+
+	@Override
+	public boolean addHit(int no) {
+		try {
+			noticeMapper.updateNoticeHit(no);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
 }

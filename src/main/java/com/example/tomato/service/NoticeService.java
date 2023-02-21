@@ -19,4 +19,8 @@ public interface NoticeService {
 	boolean delete(int no);
 
 	boolean modify(BoardVO boardVO);
+
+	boolean addHit(int no);
+
+	
 }

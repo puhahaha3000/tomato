@@ -57,6 +57,8 @@ public class NoticeController {
 	@GetMapping("/{no}")
     public String detail(@PathVariable String no, Model model) {
         log.info("detail().. noticePageNo:" + no);
+        boolean addHitResult = noticeService.addHit(Integer.parseInt(no));
+        log.info("addHitResult: " + addHitResult);
         model.addAttribute("noticePageDetail", noticeService.read(Integer.parseInt(no)));
         model.addAttribute("pageName", "../notice/detail.jsp");
         return "template/template";
@@ -100,7 +102,7 @@ public class NoticeController {
 	@PatchMapping("/modify/{no}")
 	public String modify(BoardVO boardVO, Model model) {
 		log.info("modify()..");
-		String pageName = "../notice/list.jsp";
+		String pageName = "../notice/{no}";
 		boolean modifyResult = noticeService.modify(boardVO);
 		model.addAttribute(modifyResult);
 		model.addAttribute("pageName", pageName);

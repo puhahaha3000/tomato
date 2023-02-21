@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.tomato.service.AuthService;
 import com.example.tomato.service.MemberService;
 import com.example.tomato.vo.AuthInfoVO;
 import com.example.tomato.vo.MemberVO;
@@ -28,6 +29,9 @@ public class AuthController {
 
 	@Autowired
 	MemberService memberService;
+	
+	@Autowired
+	AuthService authService;
 
 	@GetMapping("/login")
 	public String login(Model model) {
@@ -78,7 +82,7 @@ public class AuthController {
 
 			String title = name + "회원님의 ID입니다";
 			String content = "ID: " + member.getId(); // id찾기에서 email의 content는 id이다
-			boolean sendResult = memberService.sendMail(email, title, content);
+			boolean sendResult = authService.sendMail(email, title, content);
 			// 오류검증구문
 			if (sendResult == true) {
 				log.info("정상발송");
@@ -124,14 +128,14 @@ public class AuthController {
 				no = "0" + no;
 			}
 			String content = "인증코드: " + no; // email의 내용에 인증용 난수를 첨부
-			boolean sendResult = memberService.sendMail(email, title, content);
+			boolean sendResult = authService.sendMail(email, title, content);
 
 			// 오류검증구문
 			if (sendResult == true) {
 				authInfoVO.setMemberNo(memberNo);
 				authInfoVO.setNo(no);
 
-				boolean setAuthInfoResult = memberService.setAuthInfo(authInfoVO); // 일단 db에 저장은 했는데, 검증과정에서는 session에서
+				boolean setAuthInfoResult = authService.setAuthInfo(authInfoVO); // 일단 db에 저장은 했는데, 검증과정에서는 session에서
 																					// 바로 진행
 				log.info(setAuthInfoResult + "");
 
